@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Anton&family=Barlow+Condensed:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-script: 'Dancing Script', cursive;
+  --font-display: 'Anton', 'Barlow Condensed', sans-serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-nav: 'Barlow Condensed', sans-serif;
+
+  --color-navy: #1a2d4a;
+  --color-navy-deep: #0f1e33;
+  --color-rust: #9b3f12;
+  --color-rust-mid: #b04815;
+  --color-orange: #e8631a;
+  --color-cream: #f2ead8;
+  --color-cream-light: #faf5eb;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', system-ui, sans-serif;
+  margin: 0;
+  background: #f2ead8;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 3px; }
