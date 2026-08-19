@@ -560,8 +560,8 @@ export default function Home() {
             <p style={{ fontFamily: "'Dancing Script', cursive", color: '#e8631a', fontSize: 'clamp(1.5rem, 2.6vw, 2.15rem)', margin: '0 0 8px' }}>the heart behind Max & Me</p>
             <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, color: '#152638', fontSize: 'clamp(2.4rem, 5vw, 4.5rem)', lineHeight: 0.95, letterSpacing: '0.04em', margin: '0 0 24px', textTransform: 'uppercase' }}>MEET RAMONA & MAXIMUS</h2>
             <p style={{ color: '#46586a', fontSize: '1.05rem', lineHeight: 1.75, margin: '0 0 18px' }}>
-              Max & Me grew from a simple belief: dogs deserve care that sees the whole dog. Their personality, routines, confidence, comfort, curiosity, and the things that make their tail wag.
-            </p>
+              Max & Me started with a promise I made to my own true Adventure Dog: that I would continue his legacy by bringing more joy, enrichment, and adventure to the lives of every paw that crossed my path. That promise became the heart behind Max & Me and still guides the way I care for every dog today.
+   </p>
             <p style={{ color: '#46586a', fontSize: '1.05rem', lineHeight: 1.75, margin: '0 0 26px' }}>
               Inspired by Maximus and shaped by years of caring for dogs with all kinds of needs, every Max & Me experience is personal. Some dogs want a trail full of new smells. Some want familiar comforts at home. Some need a little extra patience and support. The goal is always the same: help each dog feel safe, understood, enriched, and genuinely happy.
             </p>
