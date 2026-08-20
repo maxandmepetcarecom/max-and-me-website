@@ -135,7 +135,6 @@ function ServiceCard({
 
         {/* Learn more */}
             </div>
-          )}
         </header>
 
         {/* Logo */}
