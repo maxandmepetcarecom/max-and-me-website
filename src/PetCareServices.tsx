@@ -134,8 +134,10 @@ function ServiceCard({
         }}>{body}</p>
 
         {/* Learn more */}
-            </div>
-        </header>
+</div>
+</div>
+)}
+</header>
 
         {/* Logo */}
         <a href="/" style={{
