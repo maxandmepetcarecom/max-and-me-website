@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { CSSProperties } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import logoImg from '@/imports/CEDF61B2-EC8A-46E7-8F26-BD383FE52A0D.png'
 import heroPhoto from '@/imports/71D5B044-4929-4163-95D6-6043BA0DD6AC.png'
 
@@ -56,7 +56,7 @@ function ServiceCard({
   photo, badgeIcon, title, tagline, body, objectPos = 'center center',
 }: {
   photo: string
-  badgeIcon: React.ReactNode
+  badgeIcon: ReactNode
   title: string
   tagline: string
   body: string
@@ -85,11 +85,12 @@ function ServiceCard({
       }}
     >
       {/* Photo */}
-      <div style={{ position: 'relative', height: 'clamp(240px, 28vw, 330px)', borderRadius: '20px 20px 0 0', overflow: 'hidden', flexShrink: 0 }}>
-        <img src={photo} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: objectPos, display: 'block' }} />
+      <div style={{ position: 'relative', height: 'clamp(240px, 28vw, 330px)', borderRadius: '20px 20px 0 0', overflow: 'visible', flexShrink: 0 }}>
+        <img src={photo} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: objectPos, display: 'block', borderRadius: '20px 20px 0 0' }} />
         <div style={{
           position: 'absolute', inset: 0,
           background: 'linear-gradient(180deg, transparent 50%, rgba(21,38,56,0.55) 100%)',
+          borderRadius: '20px 20px 0 0',
         }} />
         {/* Circle badge */}
         <div style={{
@@ -133,11 +134,134 @@ function ServiceCard({
           lineHeight: 1.65, margin: '0 0 20px', flex: 1,
         }}>{body}</p>
 
-        {/* Learn more */}
-</div>
-</div>
-)}
-</header>
+      </div>
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  NAV                                                        */
+/* ─────────────────────────────────────────────────────────── */
+const NAV_LINKS = [
+  { label: 'HOME', to: '/' },
+  { label: 'ADVENTURE CLUB', to: '/adventure-club' },
+  { label: 'PET CARE SERVICES', to: '/services' },
+  { label: 'SPECIAL CARE', to: '/special-care' },
+  { label: 'PRICING', to: '/pricing' },
+  { label: 'ADVENTURE JOURNAL', to: '/adventure-journal' },
+]
+
+/* ─────────────────────────────────────────────────────────── */
+/*  CARD PHOTOS                                                */
+/* ─────────────────────────────────────────────────────────── */
+const PHOTOS = {
+  petcations: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=85',
+  staycations: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=85',
+  daycations: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1200&q=85',
+  sniffari: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=1200&q=85',
+  bottom: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=85',
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  PAGE                                                       */
+/* ─────────────────────────────────────────────────────────── */
+export default function PetCareServices() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  return (
+    <div style={{ background: '#f2ead8', minHeight: '100vh', fontFamily: "'Outfit', sans-serif" }}>
+
+      {/* HERO */}
+      <section style={{ position: 'relative', width: '100%', minHeight: 700, overflow: 'hidden', background: '#152638' }}>
+        <img
+          src={heroPhoto}
+          alt="Max & Me personalized pet care"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center center',
+          }}
+        />
+
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(95deg, rgba(7,24,39,0.96) 0%, rgba(7,24,39,0.84) 34%, rgba(7,24,39,0.48) 58%, rgba(7,24,39,0.10) 82%, rgba(7,24,39,0) 100%)',
+          zIndex: 1,
+        }} />
+
+        <header style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 100 }}>
+          <div style={{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.32) 75%, transparent 100%)',
+            padding: '0 32px',
+          }}>
+            <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', alignItems: 'center', height: 68, gap: 28 }}>
+              <nav className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: 28, flex: 1 }}>
+                {NAV_LINKS.map(link => (
+                  <a
+                    key={link.label}
+                    href={link.to}
+                    style={{
+                      fontFamily: "'Barlow Condensed', sans-serif",
+                      fontWeight: 700,
+                      fontSize: '0.95rem',
+                      letterSpacing: '0.08em',
+                      color: 'white',
+                      textDecoration: 'none',
+                      textShadow: '0 1px 3px rgba(0,0,0,0.6)',
+                      borderBottom: link.label === 'PET CARE SERVICES' ? '2px solid #e8631a' : '2px solid transparent',
+                      paddingBottom: 2,
+                      whiteSpace: 'nowrap' as const,
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+
+              <button
+                type="button"
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="nav-mobile-toggle"
+                aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={mobileOpen}
+                style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', marginLeft: 'auto' }}
+              >
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" aria-hidden="true">
+                  {mobileOpen
+                    ? <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" />
+                    : <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />}
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {mobileOpen && (
+            <nav style={{ background: 'rgba(8,17,36,0.98)', padding: '18px 28px 30px' }}>
+              {NAV_LINKS.map(link => (
+                <div key={link.label} style={{ marginBottom: 16 }}>
+                  <a
+                    href={link.to}
+                    onClick={() => setMobileOpen(false)}
+                    style={{
+                      color: link.label === 'PET CARE SERVICES' ? '#e8631a' : 'white',
+                      fontFamily: "'Barlow Condensed', sans-serif",
+                      fontWeight: 700,
+                      fontSize: '1.15rem',
+                      letterSpacing: '0.1em',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </div>
+              ))}
+            </nav>
+          )}
+        </header>
 
         {/* Logo */}
         <a href="/" style={{
