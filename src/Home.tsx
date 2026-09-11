@@ -37,9 +37,9 @@ const NAV_LINKS = [
   { label: 'HOME', to: '/' },
   { label: 'ADVENTURE CLUB', to: '/adventure-club' },
   { label: 'PET CARE', to: '/services' },
-  { label: 'ABOUT', to: '/about' },
-  { label: 'REVIEWS', to: '/reviews' },
-  { label: 'CONTACT', to: '/contact' },
+  { label: 'SPECIAL CARE', to: '/special-care' },
+  { label: 'PRICING', to: '/pricing' },
+  { label: 'ADVENTURE JOURNAL', to: '/adventure-journal' },
 ]
 
 export default function Home() {
@@ -61,15 +61,8 @@ export default function Home() {
 
         <header className="site-header">
 
-          <a
-            href="/"
-            className="brand"
-            aria-label="Max & Me Pet Care home"
-          >
-            <img
-              src={petCareLogo}
-              alt="Max & Me Pet Care"
-            />
+          <a href="/" className="brand" aria-label="Max & Me Pet Care home">
+            <img src={petCareLogo} alt="Max & Me Pet Care" />
           </a>
 
           <nav className="desktop-nav">
@@ -85,7 +78,7 @@ export default function Home() {
           </nav>
 
           <a href="/services" className="book-button">
-            <PawPrint size={22} />
+            <PawPrint size={19} />
             BOOK NOW
           </a>
 
@@ -111,10 +104,7 @@ export default function Home() {
                 </a>
               ))}
 
-              <a
-                href="/services"
-                onClick={() => setMobileOpen(false)}
-              >
+              <a href="/services" onClick={() => setMobileOpen(false)}>
                 BOOK NOW
               </a>
             </nav>
@@ -135,44 +125,32 @@ export default function Home() {
           </div>
 
           <p>
-            Partnering with pet parents to give their pets the
-            life they deserve. A life filled with adventure,
-            enrichment, and lasting friendships. 🐾
+            Partnering with pet parents to give their pets the life they
+            deserve, filled with adventure, enrichment, comfort, and
+            lasting friendships. 🐾
           </p>
 
-        </div>
-
-        <div className="hero-note">
-          Good
-          <br />
-          Dogs.
-          <br />
-          Happier
-          <br />
-          Humans
-          <br />
-          ♡
         </div>
 
       </section>
 
 
-      {/* SERVICE CARDS */}
-      <section className="services-section">
+      {/* TWO PATHS */}
+      <section className="choice-section">
 
-        <div className="service-grid">
+        <div className="choice-grid">
 
           {/* ADVENTURE CLUB */}
-          <article className="service-card">
+          <article className="choice-card">
 
-            <div className="service-photo">
+            <div className="choice-photo adventure-photo">
               <img
                 src={huckImg}
                 alt="Huck enjoying an outdoor adventure"
               />
             </div>
 
-            <div className="paper-panel">
+            <div className="choice-paper">
 
               <img
                 src={adventureClubLogo}
@@ -180,24 +158,15 @@ export default function Home() {
                 className="adventure-logo"
               />
 
-              <div className="service-script navy-script">
-                Beyond the walk.
+              <p className="choice-tagline navy">
+                Small Adventures.
                 <br />
-                Into a life of adventure.
-              </div>
-
-              <p className="service-copy">
-                Hikes, field trips, pack walks, enrichment,
-                and confidence-building adventures for dogs
-                of every age and personality.
+                Make Big Happier Dogs.
               </p>
 
-              <a
-                href="/adventure-club"
-                className="service-button adventure-button"
-              >
+              <a href="/adventure-club" className="choice-button adventure-btn">
                 EXPLORE THE CLUB
-                <PawPrint size={21} />
+                <PawPrint size={18} />
               </a>
 
             </div>
@@ -206,16 +175,16 @@ export default function Home() {
 
 
           {/* PET CARE */}
-          <article className="service-card">
+          <article className="choice-card">
 
-            <div className="service-photo">
+            <div className="choice-photo pet-photo">
               <img
                 src={petCareImg}
-                alt="Dogs resting comfortably during Max & Me pet care"
+                alt="Dogs relaxing during Max & Me pet care"
               />
             </div>
 
-            <div className="paper-panel">
+            <div className="choice-paper">
 
               <img
                 src={petCareLogo}
@@ -223,22 +192,13 @@ export default function Home() {
                 className="pet-logo"
               />
 
-              <div className="service-script orange-script">
+              <p className="choice-tagline orange">
                 Love. Comfort. Peace of mind.
-              </div>
-
-              <p className="service-copy">
-                Petcations, Daycations, Staycations,
-                and personalized care built around each pet’s
-                routine, personality, and needs.
               </p>
 
-              <a
-                href="/services"
-                className="service-button pet-button"
-              >
+              <a href="/services" className="choice-button pet-btn">
                 EXPLORE PET CARE
-                <PawPrint size={21} />
+                <PawPrint size={18} />
               </a>
 
             </div>
@@ -250,10 +210,10 @@ export default function Home() {
       </section>
 
 
-      {/* TRUST STRIP */}
+      {/* TRUST */}
       <section className="trust-strip">
 
-        <div className="trust-heading">
+        <div className="trust-title">
           <span />
           <h2>Why Pawrents Trust Max &amp; Me</h2>
           <span />
@@ -262,69 +222,57 @@ export default function Home() {
         <div className="trust-grid">
 
           <div className="trust-item">
-            <div className="trust-icon">
-              <PawPrint size={24} />
-            </div>
-            <div>
+            <div className="trust-icon">♡</div>
+            <strong>
               FEAR FREE
               <br />
               APPROACH
-            </div>
+            </strong>
           </div>
 
           <div className="trust-item">
-            <div className="trust-icon">
-              ✓
-            </div>
-            <div>
+            <div className="trust-icon">✓</div>
+            <strong>
               INSURED &amp;
               <br />
               BONDED
-            </div>
+            </strong>
           </div>
 
           <div className="trust-item">
-            <div className="trust-icon">
-              ✚
-            </div>
-            <div>
+            <div className="trust-icon">✚</div>
+            <strong>
               PET FIRST AID
               <br />
               CERTIFIED
-            </div>
+            </strong>
           </div>
 
           <div className="trust-item">
-            <div className="trust-icon">
-              ▣
-            </div>
-            <div>
+            <div className="trust-icon camera-icon">▣</div>
+            <strong>
               PERSONAL ADVENTURE
               <br />
               PHOTO ALBUM
-            </div>
+            </strong>
           </div>
 
           <div className="trust-item">
-            <div className="trust-icon">
-              ●
-            </div>
-            <div>
+            <div className="trust-icon live-icon">●</div>
+            <strong>
               LIVE
               <br />
               UPDATES
-            </div>
+            </strong>
           </div>
 
           <div className="trust-item">
-            <div className="trust-icon">
-              ●
-            </div>
-            <div>
+            <div className="trust-icon location-icon">●</div>
+            <strong>
               SERVING SAINT CLOUD
               <br />
               &amp; SURROUNDING AREAS
-            </div>
+            </strong>
           </div>
 
         </div>
@@ -332,7 +280,7 @@ export default function Home() {
       </section>
 
 
-      {/* FOOTER IMAGE */}
+      {/* PHOTO FOOTER */}
       <footer className="footer-photo">
 
         <img
@@ -340,15 +288,15 @@ export default function Home() {
           alt="Max & Me lakeside adventure at golden hour"
         />
 
-        <div className="footer-overlay" />
+        <div className="footer-shade" />
 
-        <div className="footer-left-script">
+        <div className="footer-script footer-left">
           Let’s explore
           <br />
           together! ♡
         </div>
 
-        <div className="footer-right-script">
+        <div className="footer-script footer-right">
           Enriching lives
           <br />
           one paw at a time. ♡
@@ -357,15 +305,8 @@ export default function Home() {
         <div className="footer-bottom">
 
           <div className="footer-location">
-            <span className="pin">●</span>
-
-            <span>
-              SERVING SAINT CLOUD,
-              <br />
-              LAKE NONA, NARCOOSSEE
-              <br />
-              &amp; SURROUNDING AREAS
-            </span>
+            ● &nbsp; SERVING SAINT CLOUD, LAKE NONA,
+            NARCOOSSEE &amp; SURROUNDING AREAS
           </div>
 
           <div className="footer-contact">
@@ -401,19 +342,22 @@ export default function Home() {
         }
 
         .page {
+          width: 100%;
           min-height: 100vh;
           overflow-x: hidden;
           background: #f3ead7;
-          color: #0b2c48;
+          color: #102d4a;
           font-family: 'Outfit', sans-serif;
         }
 
 
-        /* HERO */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
           position: relative;
-          height: 615px;
+          height: 560px;
           overflow: hidden;
           background: #111;
         }
@@ -424,7 +368,7 @@ export default function Home() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: 58% 43%;
+          object-position: 57% 43%;
         }
 
         .hero-overlay {
@@ -433,16 +377,18 @@ export default function Home() {
           background:
             linear-gradient(
               90deg,
-              rgba(0,0,0,.82) 0%,
-              rgba(0,0,0,.66) 28%,
-              rgba(0,0,0,.32) 48%,
+              rgba(0,0,0,.78) 0%,
+              rgba(0,0,0,.61) 28%,
+              rgba(0,0,0,.30) 47%,
               rgba(0,0,0,.05) 70%,
-              rgba(0,0,0,.18) 100%
+              rgba(0,0,0,.10) 100%
             );
         }
 
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         .site-header {
           position: absolute;
@@ -450,265 +396,253 @@ export default function Home() {
           top: 0;
           left: 0;
           right: 0;
-          height: 96px;
+          height: 92px;
+          padding: 10px clamp(26px, 4vw, 64px);
           display: flex;
           align-items: center;
-          gap: 26px;
-          padding: 12px clamp(34px, 4.5vw, 70px);
+          gap: 22px;
         }
 
         .brand {
-          width: 195px;
+          width: 175px;
           flex: 0 0 auto;
         }
 
         .brand img {
           width: 100%;
           display: block;
-          filter: drop-shadow(0 2px 5px rgba(0,0,0,.55));
+          filter: drop-shadow(0 2px 5px rgba(0,0,0,.5));
         }
 
         .desktop-nav {
           flex: 1;
           display: flex;
-          align-items: center;
           justify-content: center;
-          gap: clamp(14px, 1.7vw, 28px);
+          align-items: center;
+          gap: clamp(12px, 1.5vw, 24px);
         }
 
         .desktop-nav a {
           color: white;
           text-decoration: none;
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: .94rem;
+          font-size: .88rem;
           font-weight: 800;
-          letter-spacing: .045em;
+          letter-spacing: .05em;
           white-space: nowrap;
-          padding: 8px 0;
-          text-shadow: 0 2px 5px rgba(0,0,0,.7);
+          padding: 7px 0;
+          text-shadow: 0 2px 5px rgba(0,0,0,.65);
         }
 
         .desktop-nav a.active {
-          border-bottom: 3px solid #f26419;
+          border-bottom: 3px solid #f36b21;
         }
 
         .book-button {
           flex: 0 0 auto;
-          min-width: 145px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
-          padding: 14px 18px;
+          gap: 7px;
+          min-width: 130px;
+          padding: 12px 16px;
           border-radius: 7px;
-          background: #f26419;
+          background: #f36b21;
           color: white;
           text-decoration: none;
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 1rem;
           font-weight: 900;
-          letter-spacing: .04em;
-          box-shadow: 0 5px 14px rgba(0,0,0,.25);
+          letter-spacing: .05em;
+          box-shadow: 0 4px 12px rgba(0,0,0,.25);
         }
 
         .mobile-toggle {
           display: none;
           margin-left: auto;
-          width: 48px;
-          height: 48px;
-          border: 1px solid rgba(255,255,255,.5);
-          border-radius: 8px;
-          background: rgba(8,34,55,.9);
+          width: 44px;
+          height: 44px;
+          border: 1px solid rgba(255,255,255,.55);
+          background: rgba(8,29,49,.85);
           color: white;
-          font-size: 1.6rem;
+          border-radius: 7px;
+          font-size: 1.55rem;
           cursor: pointer;
         }
 
         .mobile-nav {
           position: absolute;
-          top: 80px;
-          left: 18px;
-          right: 18px;
-          padding: 16px 20px;
-          background: rgba(6,28,47,.98);
+          top: 72px;
+          left: 14px;
+          right: 14px;
+          background: rgba(8,29,49,.985);
+          padding: 14px 20px;
           border-radius: 8px;
           box-shadow: 0 14px 30px rgba(0,0,0,.35);
         }
 
         .mobile-nav a {
           display: block;
-          padding: 9px 0;
           color: white;
           text-decoration: none;
           font-family: 'Barlow Condensed', sans-serif;
           font-weight: 800;
           letter-spacing: .07em;
+          padding: 8px 0;
         }
 
 
-        /* HERO TEXT */
+        /* =========================
+           HERO COPY
+        ========================= */
 
         .hero-copy {
           position: absolute;
           z-index: 10;
-          top: 170px;
-          left: clamp(36px, 4.6vw, 72px);
-          width: min(52vw, 640px);
+          left: clamp(30px, 4.5vw, 68px);
+          top: 165px;
+          width: min(53vw, 650px);
           color: white;
         }
 
         .hero-copy h1 {
-          margin: 0;
+          margin: 0 0 5px;
           font-family: 'Anton', sans-serif;
-          font-size: clamp(3.1rem, 5.25vw, 5.4rem);
-          line-height: .94;
+          font-size: clamp(3rem, 5.4vw, 5.3rem);
+          line-height: .92;
           letter-spacing: .005em;
-          text-shadow: 0 4px 13px rgba(0,0,0,.45);
+          text-shadow: 0 4px 12px rgba(0,0,0,.42);
         }
 
         .hero-copy h1 span {
-          color: #f15e16;
+          color: #f15f16;
         }
 
         .hero-script {
-          margin: 10px 0 12px;
+          margin: 7px 0 9px;
           font-family: 'Dancing Script', cursive;
-          font-size: clamp(2rem, 3.4vw, 3.25rem);
+          font-size: clamp(1.9rem, 3.2vw, 3.1rem);
           font-weight: 700;
           line-height: 1;
-          text-shadow: 0 3px 7px rgba(0,0,0,.5);
+          text-shadow: 0 3px 7px rgba(0,0,0,.45);
         }
 
         .hero-copy p {
-          max-width: 485px;
+          max-width: 500px;
           margin: 0;
           color: rgba(255,255,255,.94);
-          font-size: clamp(.98rem, 1.3vw, 1.16rem);
-          line-height: 1.4;
-          text-shadow: 0 2px 5px rgba(0,0,0,.65);
-        }
-
-        .hero-note {
-          position: absolute;
-          z-index: 10;
-          right: 5%;
-          top: 150px;
-          color: white;
-          font-family: 'Dancing Script', cursive;
-          font-size: clamp(1.5rem, 2.2vw, 2.35rem);
-          font-weight: 700;
-          line-height: .95;
-          text-align: center;
-          transform: rotate(-7deg);
-          text-shadow: 0 2px 6px rgba(0,0,0,.7);
+          font-size: clamp(.9rem, 1.2vw, 1.08rem);
+          line-height: 1.35;
+          text-shadow: 0 2px 5px rgba(0,0,0,.55);
         }
 
 
-        /* SERVICES */
+        /* =========================
+           TWO CARDS
+        ========================= */
 
-        .services-section {
+        .choice-section {
           position: relative;
+          padding: 34px clamp(16px, 3vw, 40px) 22px;
           background: #f3ead7;
-          padding: 48px clamp(20px, 3vw, 36px) 24px;
         }
 
-        .services-section:before {
+        .choice-section:before {
           content: '';
           position: absolute;
-          top: -24px;
+          top: -20px;
           left: 0;
           right: 0;
-          height: 40px;
+          height: 30px;
           background: #f3ead7;
           clip-path: polygon(
-            0 48%,
-            3% 25%,
-            7% 46%,
-            11% 21%,
-            16% 49%,
-            20% 27%,
-            25% 51%,
-            30% 24%,
-            35% 49%,
-            40% 26%,
-            45% 52%,
-            50% 28%,
-            55% 50%,
-            60% 23%,
-            65% 51%,
-            70% 27%,
-            75% 49%,
-            80% 22%,
-            85% 50%,
-            90% 26%,
-            95% 48%,
-            100% 24%,
+            0 45%,
+            5% 22%,
+            10% 49%,
+            15% 24%,
+            20% 50%,
+            25% 25%,
+            30% 52%,
+            35% 24%,
+            40% 50%,
+            45% 27%,
+            50% 52%,
+            55% 25%,
+            60% 50%,
+            65% 23%,
+            70% 51%,
+            75% 26%,
+            80% 49%,
+            85% 24%,
+            90% 51%,
+            95% 27%,
+            100% 46%,
             100% 100%,
             0 100%
           );
         }
 
-        .service-grid {
-          max-width: 1180px;
+        .choice-grid {
+          position: relative;
+          z-index: 2;
+          max-width: 1120px;
           margin: 0 auto;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 24px;
+          gap: 22px;
         }
 
-        .service-card {
+        .choice-card {
           overflow: hidden;
-          background: #eadcc0;
-          box-shadow: 0 5px 16px rgba(53,42,24,.08);
+          background: #eee2ca;
+          box-shadow: 0 5px 16px rgba(40,31,19,.08);
         }
 
-        .service-photo {
-          height: 390px;
+        .choice-photo {
+          height: 330px;
           overflow: hidden;
         }
 
-        .service-photo img {
+        .choice-photo img {
           display: block;
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
 
-        .service-card:first-child .service-photo img {
-          object-position: center center;
+        .adventure-photo img {
+          object-position: center 42%;
         }
 
-        .service-card:last-child .service-photo img {
-          object-position: center center;
+        .pet-photo img {
+          object-position: center 50%;
         }
 
 
-        /* PAPER CARD */
+        /* =========================
+           SMOOTH PAPER PANELS
+        ========================= */
 
-        .paper-panel {
+        .choice-paper {
           position: relative;
-          min-height: 318px;
-          margin-top: -60px;
-          padding: 74px 34px 28px;
+          min-height: 245px;
+          margin-top: -42px;
+          padding: 54px 28px 24px;
           background: #f3ead7;
           text-align: center;
+
           clip-path: polygon(
-            0 15%,
-            5% 11%,
-            10% 16%,
-            16% 10%,
-            23% 15%,
-            30% 9%,
-            37% 15%,
-            44% 10%,
-            51% 15%,
-            58% 9%,
-            65% 16%,
-            72% 11%,
-            79% 15%,
-            86% 10%,
-            93% 15%,
-            100% 11%,
+            0 13%,
+            8% 9%,
+            17% 12%,
+            26% 8%,
+            35% 11%,
+            44% 8%,
+            53% 12%,
+            62% 8%,
+            71% 11%,
+            80% 8%,
+            89% 12%,
+            100% 9%,
             100% 100%,
             0 100%
           );
@@ -716,125 +650,116 @@ export default function Home() {
 
         .adventure-logo {
           display: block;
-          width: min(300px, 78%);
-          max-height: 150px;
+          width: min(260px, 76%);
+          height: 90px;
           object-fit: contain;
-          margin: -58px auto 8px;
+          margin: -38px auto 4px;
         }
 
         .pet-logo {
           display: block;
-          width: min(310px, 76%);
-          max-height: 120px;
+          width: min(275px, 76%);
+          height: 90px;
           object-fit: contain;
-          margin: -48px auto 10px;
+          margin: -38px auto 4px;
         }
 
-        .service-script {
-          margin: 8px 0 10px;
+        .choice-tagline {
+          margin: 4px 0 15px;
           font-family: 'Dancing Script', cursive;
-          font-size: clamp(1.6rem, 2.25vw, 2rem);
+          font-size: clamp(1.45rem, 2vw, 1.85rem);
           font-weight: 700;
           line-height: 1.02;
         }
 
-        .navy-script {
-          color: #0b2c48;
+        .choice-tagline.navy {
+          color: #102d4a;
         }
 
-        .orange-script {
+        .choice-tagline.orange {
           color: #ef6420;
         }
 
-        .service-copy {
-          max-width: 465px;
-          margin: 0 auto 18px;
-          color: #15283a;
-          font-size: .95rem;
-          line-height: 1.4;
-        }
-
-        .service-button {
+        .choice-button {
           width: 100%;
-          max-width: 430px;
-          min-height: 52px;
+          max-width: 400px;
+          min-height: 50px;
           margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 10px;
-          border-radius: 6px;
+          gap: 9px;
           color: white;
           text-decoration: none;
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 1.2rem;
+          font-size: 1.12rem;
           font-weight: 900;
-          letter-spacing: .04em;
+          letter-spacing: .05em;
+          border-radius: 6px;
         }
 
-        .adventure-button {
+        .adventure-btn {
           background: #092943;
-          border: 2px solid #f26419;
+          border: 2px solid #f36b21;
         }
 
-        .pet-button {
-          background: #264f25;
+        .pet-btn {
+          background: #294f26;
         }
 
 
-        /* TRUST */
+        /* =========================
+           TRUST
+        ========================= */
 
         .trust-strip {
+          padding: 10px clamp(18px, 4vw, 50px) 28px;
           background: #f3ead7;
-          padding: 8px clamp(20px,4vw,56px) 26px;
           text-align: center;
         }
 
-        .trust-heading {
-          max-width: 1000px;
-          margin: 0 auto 16px;
+        .trust-title {
+          max-width: 900px;
+          margin: 0 auto 17px;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 18px;
+          gap: 16px;
         }
 
-        .trust-heading span {
+        .trust-title span {
           height: 2px;
           flex: 1;
-          max-width: 185px;
-          background: #0b2c48;
-          opacity: .75;
+          max-width: 150px;
+          background: #f36b21;
         }
 
-        .trust-heading h2 {
+        .trust-title h2 {
           margin: 0;
-          color: #0b2c48;
+          color: #102d4a;
           font-family: 'Dancing Script', cursive;
-          font-size: clamp(2rem, 3vw, 2.8rem);
-          font-weight: 700;
+          font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+          line-height: 1;
           white-space: nowrap;
         }
 
         .trust-grid {
-          max-width: 1180px;
+          max-width: 1120px;
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(6, 1fr);
         }
 
         .trust-item {
-          min-height: 88px;
-          padding: 0 10px;
+          min-height: 82px;
+          padding: 0 9px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: flex-start;
-          border-right: 1px solid rgba(11,44,72,.2);
-          color: #0b2c48;
+          border-right: 1px solid rgba(16,45,74,.18);
+          color: #102d4a;
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: .9rem;
-          font-weight: 900;
+          font-size: .82rem;
           line-height: 1.05;
         }
 
@@ -843,26 +768,48 @@ export default function Home() {
         }
 
         .trust-icon {
-          width: 44px;
-          height: 44px;
-          margin-bottom: 7px;
-          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          margin-bottom: 6px;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #0b2c48;
+          border-radius: 50%;
+          background: #102d4a;
           color: white;
-          font-size: 1.45rem;
+          font-size: 1.3rem;
+          font-weight: 700;
+        }
+
+        .live-icon {
+          font-size: .8rem;
+        }
+
+        .location-icon {
+          position: relative;
+          font-size: .72rem;
+        }
+
+        .location-icon:after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          width: 8px;
+          height: 8px;
+          background: #102d4a;
+          transform: rotate(45deg);
         }
 
 
-        /* FOOTER */
+        /* =========================
+           PHOTO FOOTER
+        ========================= */
 
         .footer-photo {
           position: relative;
-          height: 365px;
+          height: 330px;
           overflow: hidden;
-          background: #071b2d;
+          background: #081b2d;
           color: white;
         }
 
@@ -872,84 +819,76 @@ export default function Home() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center center;
+          object-position: center 50%;
         }
 
-        .footer-overlay {
+        .footer-shade {
           position: absolute;
           inset: 0;
           background:
             linear-gradient(
               to top,
-              rgba(4,20,35,.96) 0%,
-              rgba(4,20,35,.18) 53%,
-              rgba(0,0,0,.03) 100%
+              rgba(4,19,34,.95) 0%,
+              rgba(4,19,34,.16) 52%,
+              rgba(0,0,0,.02) 100%
             );
         }
 
-        .footer-left-script,
-        .footer-right-script {
+        .footer-script {
           position: absolute;
-          z-index: 3;
-          top: 27%;
-          color: white;
+          z-index: 2;
+          top: 26%;
           font-family: 'Dancing Script', cursive;
-          font-size: clamp(1.8rem, 2.7vw, 2.8rem);
+          font-size: clamp(1.7rem, 2.6vw, 2.7rem);
           font-weight: 700;
-          line-height: 1.05;
-          text-shadow: 0 2px 7px rgba(0,0,0,.7);
+          line-height: 1.02;
+          text-shadow: 0 2px 6px rgba(0,0,0,.65);
         }
 
-        .footer-left-script {
-          left: 4.5%;
+        .footer-left {
+          left: 5%;
           transform: rotate(-5deg);
         }
 
-        .footer-right-script {
-          right: 4.5%;
+        .footer-right {
+          right: 5%;
           text-align: right;
           transform: rotate(-5deg);
         }
 
         .footer-bottom {
           position: absolute;
-          z-index: 4;
+          z-index: 3;
           left: 4%;
           right: 4%;
-          bottom: 18px;
+          bottom: 17px;
           display: grid;
-          grid-template-columns: 1.2fr 1.6fr .7fr;
+          grid-template-columns: 1.25fr 1.5fr .65fr;
           align-items: end;
-          gap: 18px;
+          gap: 16px;
           font-family: 'Barlow Condensed', sans-serif;
           font-weight: 800;
         }
 
         .footer-location {
-          display: flex;
-          align-items: flex-start;
-          gap: 9px;
-          font-size: .86rem;
-          line-height: 1.12;
-        }
-
-        .pin {
-          font-size: 1.5rem;
-          line-height: 1;
+          font-size: .78rem;
+          line-height: 1.15;
         }
 
         .footer-contact {
           text-align: center;
-          font-size: 1.05rem;
+          font-size: .98rem;
         }
 
         .footer-socials {
           text-align: right;
-          font-size: 1.65rem;
+          font-size: 1.5rem;
         }
 
 
-        /* TABLET */
+        /* =========================
+           TABLET
+        ========================= */
 
         @media (max-width: 900px) {
 
@@ -963,163 +902,16 @@ export default function Home() {
           }
 
           .site-header {
-            height: 82px;
-            padding: 10px 24px;
+            height: 74px;
+            padding: 8px 20px;
           }
 
           .brand {
-            width: 150px;
-          }
-
-          .hero-note {
-            display: none;
+            width: 145px;
           }
 
           .hero-copy {
-            width: 66vw;
-          }
-        }
-
-
-        /* MOBILE */
-
-        @media (max-width: 640px) {
-
-          .hero {
-            height: 510px;
-          }
-
-          .hero-image {
-            object-position: 58% center;
-          }
-
-          .hero-overlay {
-            background:
-              linear-gradient(
-                90deg,
-                rgba(0,0,0,.82) 0%,
-                rgba(0,0,0,.62) 44%,
-                rgba(0,0,0,.08) 85%
-              );
-          }
-
-          .site-header {
-            height: 72px;
-            padding: 8px 18px;
-          }
-
-          .brand {
-            width: 135px;
-          }
-
-          .mobile-toggle {
-            width: 44px;
-            height: 44px;
-          }
-
-          .mobile-nav {
-            top: 66px;
-          }
-
-          .hero-copy {
-            top: 153px;
-            left: 22px;
-            width: calc(100% - 44px);
-          }
-
-          .hero-copy h1 {
-            max-width: 92%;
-            font-size: clamp(2.6rem, 11.5vw, 3.4rem);
-          }
-
-          .hero-script {
-            margin-top: 8px;
-            font-size: 2rem;
-          }
-
-          .hero-copy p {
-            max-width: 87%;
-            font-size: .88rem;
-            line-height: 1.35;
-          }
-
-
-          /* KEEP SERVICE CARDS SIDE BY SIDE */
-
-          .services-section {
-            padding: 30px 8px 18px;
-          }
-
-          .service-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-          }
-
-          .service-photo {
-            height: 205px;
-          }
-
-          .paper-panel {
-            min-height: 235px;
-            margin-top: -42px;
-            padding: 53px 9px 13px;
-          }
-
-          .adventure-logo {
-            width: 92%;
-            max-height: 82px;
-            margin: -38px auto 6px;
-          }
-
-          .pet-logo {
-            width: 90%;
-            max-height: 62px;
-            margin: -31px auto 7px;
-          }
-
-          .service-script {
-            margin: 6px 0 7px;
-            font-size: .98rem;
-            line-height: 1;
-          }
-
-          .service-copy {
-            margin-bottom: 9px;
-            font-size: .62rem;
-            line-height: 1.24;
-          }
-
-          .service-button {
-            min-height: 38px;
-            gap: 4px;
-            padding: 5px 3px;
-            font-size: .73rem;
-          }
-
-          .service-button svg {
-            width: 14px;
-            height: 14px;
-          }
-
-
-          /* TRUST */
-
-          .trust-strip {
-            padding: 10px 10px 18px;
-          }
-
-          .trust-heading {
-            gap: 8px;
-            margin-bottom: 13px;
-          }
-
-          .trust-heading h2 {
-            font-size: 1.55rem;
-            white-space: normal;
-          }
-
-          .trust-heading span {
-            max-width: 35px;
+            width: 68vw;
           }
 
           .trust-grid {
@@ -1127,69 +919,102 @@ export default function Home() {
             row-gap: 14px;
           }
 
-          .trust-item {
-            min-height: 65px;
+          .trust-item:nth-child(3) {
             border-right: 0;
-            padding: 0 3px;
-            font-size: .66rem;
-          }
-
-          .trust-icon {
-            width: 36px;
-            height: 36px;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-          }
-
-
-          /* FOOTER */
-
-          .footer-photo {
-            height: 285px;
-          }
-
-          .footer-left-script,
-          .footer-right-script {
-            top: 18%;
-            font-size: 1.45rem;
-          }
-
-          .footer-left-script {
-            left: 4%;
-          }
-
-          .footer-right-script {
-            right: 4%;
-          }
-
-          .footer-bottom {
-            left: 3%;
-            right: 3%;
-            bottom: 12px;
-            grid-template-columns: 1fr;
-            gap: 5px;
-          }
-
-          .footer-location {
-            display: none;
-          }
-
-          .footer-contact,
-          .footer-socials {
-            text-align: center;
-          }
-
-          .footer-contact {
-            font-size: .8rem;
-          }
-
-          .footer-socials {
-            font-size: 1.25rem;
           }
         }
 
-      `}</style>
 
-    </main>
-  )
-}
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 640px) {
+
+          .hero {
+            height: 390px;
+          }
+
+          .hero-image {
+            object-position: 59% 45%;
+          }
+
+          .hero-overlay {
+            background:
+              linear-gradient(
+                90deg,
+                rgba(0,0,0,.82) 0%,
+                rgba(0,0,0,.62) 37%,
+                rgba(0,0,0,.22) 64%,
+                rgba(0,0,0,.03) 100%
+              );
+          }
+
+          .site-header {
+            height: 64px;
+            padding: 6px 14px;
+          }
+
+          .brand {
+            width: 118px;
+          }
+
+          .mobile-toggle {
+            width: 40px;
+            height: 40px;
+            font-size: 1.35rem;
+          }
+
+          .mobile-nav {
+            top: 58px;
+          }
+
+          .hero-copy {
+            top: 115px;
+            left: 18px;
+            width: 68%;
+          }
+
+          .hero-copy h1 {
+            font-size: clamp(2rem, 8.6vw, 2.75rem);
+            line-height: .91;
+          }
+
+          .hero-script {
+            margin: 6px 0 7px;
+            font-size: 1.55rem;
+          }
+
+          .hero-copy p {
+            width: 94%;
+            font-size: .72rem;
+            line-height: 1.27;
+          }
+
+
+          /* CARDS STAY SIDE BY SIDE */
+
+          .choice-section {
+            padding: 24px 6px 14px;
+          }
+
+          .choice-section:before {
+            top: -14px;
+            height: 22px;
+          }
+
+          .choice-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+          }
+
+          .choice-photo {
+            height: 165px;
+          }
+
+          .adventure-photo img {
+            object-position: center center;
+          }
+
+          .pet-photo img {
+            object-position: center center;
