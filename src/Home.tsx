@@ -2,8 +2,11 @@ import { useState } from 'react'
 import type { CSSProperties } from 'react'
 
 import heroImg from '@/imports/IMG_1999.jpeg'
+import huckImg from '@/imports/91EC3682-8CE8-43DF-A7D0-2F14A33A7734.png'
+import petCareImg from '@/imports/IMG_2827.jpeg'
 import footerImg from '@/imports/71D5B044-4929-4163-95D6-6043BA0DD6AC.png'
 import petCareLogo from '@/imports/CEDF61B2-EC8A-46E7-8F26-BD383FE52A0D.png'
+import adventureClubLogo from '@/imports/BA0B141F-5CFA-4C52-B1BD-BA344D4ABC27.png'
 
 function PawPrint({
   size = 20,
@@ -19,6 +22,7 @@ function PawPrint({
       width={size}
       height={size}
       style={{ flexShrink: 0, ...style }}
+      aria-hidden="true"
     >
       <ellipse cx="22" cy="28" rx="10" ry="14" />
       <ellipse cx="43" cy="18" rx="10" ry="14" />
@@ -29,129 +33,13 @@ function PawPrint({
   )
 }
 
-function AdventureMark() {
-  return (
-    <div
-      className="adventure-mark"
-      aria-label="Max & Me Canine Adventure Club"
-    >
-      <div className="adventure-badge">
-        <svg viewBox="0 0 180 126" aria-hidden="true">
-          <defs>
-            <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#ffb52e" />
-              <stop offset="1" stopColor="#f06a1d" />
-            </linearGradient>
-          </defs>
-
-          <path
-            d="M20 90a70 70 0 0 1 140 0"
-            fill="url(#sun)"
-          />
-
-          <path
-            d="M18 92 60 48l23 27 19-22 55 39Z"
-            fill="#f3ead7"
-            opacity=".95"
-          />
-
-          <path
-            d="M0 94h180v32H0z"
-            fill="#082b49"
-          />
-
-          <g fill="#082b49">
-            <path d="M19 91 28 69l9 22zM34 91l10-28 11 28zM131 91l10-28 11 28zM148 91l9-22 9 22z" />
-          </g>
-
-          <path
-            d="M72 87c10-16 29-18 40-7 5 5 9 8 17 8-6 4-14 4-21 1-4 9-13 13-24 11l-11 8 3-13-10-5z"
-            fill="#082b49"
-          />
-        </svg>
-      </div>
-
-      <div className="adventure-name">
-        Max &amp; Me
-      </div>
-
-      <div className="adventure-club-name">
-        CANINE ADVENTURE CLUB
-      </div>
-    </div>
-  )
-}
-
 const NAV_LINKS = [
   { label: 'HOME', to: '/' },
   { label: 'ADVENTURE CLUB', to: '/adventure-club' },
   { label: 'PET CARE', to: '/services' },
-  { label: 'SPECIAL CARE', to: '/special-care' },
-  { label: 'PRICING', to: '/pricing' },
-  { label: 'ADVENTURE JOURNAL', to: '/adventure-journal' },
-]
-
-const trustItems = [
-  {
-    icon: <PawPrint size={27} />,
-    label: (
-      <>
-        FEAR FREE
-        <br />
-        APPROACH
-      </>
-    ),
-  },
-  {
-    icon: '✓',
-    label: (
-      <>
-        INSURED &amp;
-        <br />
-        BONDED
-      </>
-    ),
-  },
-  {
-    icon: '✚',
-    label: (
-      <>
-        PET FIRST AID
-        <br />
-        CERTIFIED
-      </>
-    ),
-  },
-  {
-    icon: '▣',
-    label: (
-      <>
-        PERSONAL ADVENTURE
-        <br />
-        PHOTO ALBUM
-      </>
-    ),
-  },
-  {
-    icon: '●',
-    label: (
-      <>
-        LIVE
-        <br />
-        UPDATES
-      </>
-    ),
-  },
-  {
-    icon: '●',
-    label: (
-      <>
-        SERVING SAINT CLOUD
-        <br />
-        &amp; SURROUNDING AREAS
-      </>
-    ),
-  },
+  { label: 'ABOUT', to: '/about' },
+  { label: 'REVIEWS', to: '/reviews' },
+  { label: 'CONTACT', to: '/contact' },
 ]
 
 export default function Home() {
@@ -169,7 +57,7 @@ export default function Home() {
           className="hero-image"
         />
 
-        <div className="hero-shade" />
+        <div className="hero-overlay" />
 
         <header className="site-header">
 
@@ -189,51 +77,35 @@ export default function Home() {
               <a
                 key={link.label}
                 href={link.to}
-                className={
-                  link.label === 'HOME'
-                    ? 'active'
-                    : ''
-                }
+                className={link.label === 'HOME' ? 'active' : ''}
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <a
-            href="/services"
-            className="book-button"
-          >
-            <PawPrint size={20} />
+          <a href="/services" className="book-button">
+            <PawPrint size={22} />
             BOOK NOW
           </a>
 
           <button
             type="button"
             className="mobile-toggle"
-            aria-label={
-              mobileOpen
-                ? 'Close navigation menu'
-                : 'Open navigation menu'
-            }
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileOpen}
-            onClick={() =>
-              setMobileOpen((open) => !open)
-            }
+            onClick={() => setMobileOpen((open) => !open)}
           >
             {mobileOpen ? '×' : '☰'}
           </button>
 
           {mobileOpen && (
             <nav className="mobile-nav">
-
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.label}
                   href={link.to}
-                  onClick={() =>
-                    setMobileOpen(false)
-                  }
+                  onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
                 </a>
@@ -241,13 +113,10 @@ export default function Home() {
 
               <a
                 href="/services"
-                onClick={() =>
-                  setMobileOpen(false)
-                }
+                onClick={() => setMobileOpen(false)}
               >
                 BOOK NOW
               </a>
-
             </nav>
           )}
 
@@ -258,10 +127,7 @@ export default function Home() {
           <h1>
             EVERY DOG HAS AN
             <br />
-
-            <span>
-              ADVENTURER WITHIN.
-            </span>
+            <span>ADVENTURER WITHIN.</span>
           </h1>
 
           <div className="hero-script">
@@ -269,107 +135,113 @@ export default function Home() {
           </div>
 
           <p>
-            Partnering with pet parents to give
-            their pets the life they deserve,
-            filled with adventure, enrichment,
-            comfort, and lasting friendships. 🐾
+            Partnering with pet parents to give their pets the
+            life they deserve. A life filled with adventure,
+            enrichment, and lasting friendships. 🐾
           </p>
 
         </div>
 
         <div className="hero-note">
-          Good Dogs.
+          Good
           <br />
-          Happier Humans. ♡
+          Dogs.
+          <br />
+          Happier
+          <br />
+          Humans
+          <br />
+          ♡
         </div>
 
       </section>
 
 
-      {/* TWO PATHS */}
-      <section
-        className="paths"
-        aria-label="Choose Max & Me service path"
-      >
+      {/* SERVICE CARDS */}
+      <section className="services-section">
 
-        <div className="path-grid">
+        <div className="service-grid">
 
-          <article className="path-card adventure-card">
+          {/* ADVENTURE CLUB */}
+          <article className="service-card">
 
-            <AdventureMark />
+            <div className="service-photo">
+              <img
+                src={huckImg}
+                alt="Huck enjoying an outdoor adventure"
+              />
+            </div>
 
-            <h2>
-              CANINE ADVENTURE CLUB
-            </h2>
+            <div className="paper-panel">
 
-            <h3>
-              EXPLORE. PLAY. CONNECT.
-            </h3>
+              <img
+                src={adventureClubLogo}
+                alt="Max & Me Canine Adventure Club"
+                className="adventure-logo"
+              />
 
-            <p>
-              Adventure, enrichment, and
-              confidence-building outings for dogs
-              of every age and personality.
-            </p>
+              <div className="service-script navy-script">
+                Beyond the walk.
+                <br />
+                Into a life of adventure.
+              </div>
 
-            <a
-              href="/adventure-club"
-              className="path-button"
-            >
-              ENTER THE ADVENTURE
-              <PawPrint size={20} />
-            </a>
+              <p className="service-copy">
+                Hikes, field trips, pack walks, enrichment,
+                and confidence-building adventures for dogs
+                of every age and personality.
+              </p>
+
+              <a
+                href="/adventure-club"
+                className="service-button adventure-button"
+              >
+                EXPLORE THE CLUB
+                <PawPrint size={21} />
+              </a>
+
+            </div>
 
           </article>
 
 
-          <div className="center-paw">
-            <PawPrint size={34} />
-          </div>
+          {/* PET CARE */}
+          <article className="service-card">
 
-
-          <article className="path-card pet-card">
-
-            <div
-              className="home-heart"
-              aria-hidden="true"
-            >
-              <div className="roof">
-                ⌂
-              </div>
-
-              <div className="heart">
-                ♥
-              </div>
+            <div className="service-photo">
+              <img
+                src={petCareImg}
+                alt="Dogs resting comfortably during Max & Me pet care"
+              />
             </div>
 
-            <img
-              src={petCareLogo}
-              alt="Max & Me Pet Care"
-              className="pet-path-logo"
-            />
+            <div className="paper-panel">
 
-            <h2>
-              PET CARE SERVICES
-            </h2>
+              <img
+                src={petCareLogo}
+                alt="Max & Me Pet Care"
+                className="pet-logo"
+              />
 
-            <h3>
-              LOVE. COMFORT. PEACE OF MIND.
-            </h3>
+              <div className="service-script orange-script">
+                Love. Comfort. Peace of mind.
+              </div>
 
-            <p>
-              Personalized care, specialized
-              support, and peace of mind for every
-              pet.
-            </p>
+              <p className="service-copy">
+                Petcations, Daycations, Staycations,
+                and personalized care built around each pet’s
+                routine, personality, and needs.
+              </p>
 
-            <a
-              href="/services"
-              className="path-button"
-            >
-              EXPLORE PET CARE
-              <PawPrint size={20} />
-            </a>
+              <a
+                href="/services"
+                className="service-button pet-button"
+              >
+                EXPLORE PET CARE
+                <PawPrint size={21} />
+              </a>
+
+            </div>
 
           </article>
 
@@ -381,56 +253,102 @@ export default function Home() {
       {/* TRUST STRIP */}
       <section className="trust-strip">
 
-        <h2>
+        <div className="trust-heading">
           <span />
-          Why Pawrents Trust Max &amp; Me
+          <h2>Why Pawrents Trust Max &amp; Me</h2>
           <span />
-        </h2>
+        </div>
 
         <div className="trust-grid">
 
-          {trustItems.map((item, index) => (
-
-            <div
-              className="trust-item"
-              key={index}
-            >
-
-              <div className="trust-icon">
-                {item.icon}
-              </div>
-
-              <div className="trust-label">
-                {item.label}
-              </div>
-
+          <div className="trust-item">
+            <div className="trust-icon">
+              <PawPrint size={24} />
             </div>
+            <div>
+              FEAR FREE
+              <br />
+              APPROACH
+            </div>
+          </div>
 
-          ))}
+          <div className="trust-item">
+            <div className="trust-icon">
+              ✓
+            </div>
+            <div>
+              INSURED &amp;
+              <br />
+              BONDED
+            </div>
+          </div>
+
+          <div className="trust-item">
+            <div className="trust-icon">
+              ✚
+            </div>
+            <div>
+              PET FIRST AID
+              <br />
+              CERTIFIED
+            </div>
+          </div>
+
+          <div className="trust-item">
+            <div className="trust-icon">
+              ▣
+            </div>
+            <div>
+              PERSONAL ADVENTURE
+              <br />
+              PHOTO ALBUM
+            </div>
+          </div>
+
+          <div className="trust-item">
+            <div className="trust-icon">
+              ●
+            </div>
+            <div>
+              LIVE
+              <br />
+              UPDATES
+            </div>
+          </div>
+
+          <div className="trust-item">
+            <div className="trust-icon">
+              ●
+            </div>
+            <div>
+              SERVING SAINT CLOUD
+              <br />
+              &amp; SURROUNDING AREAS
+            </div>
+          </div>
 
         </div>
 
       </section>
 
 
-      {/* FOOTER PHOTO */}
-
+      {/* FOOTER IMAGE */}
       <footer className="footer-photo">
 
         <img
           src={footerImg}
-          alt="Max & Me adventure at golden hour"
+          alt="Max & Me lakeside adventure at golden hour"
         />
 
-        <div className="footer-shade" />
+        <div className="footer-overlay" />
 
-        <div className="footer-script footer-left">
+        <div className="footer-left-script">
           Let’s explore
           <br />
           together! ♡
         </div>
 
-        <div className="footer-script footer-right">
+        <div className="footer-right-script">
           Enriching lives
           <br />
           one paw at a time. ♡
@@ -439,13 +357,22 @@ export default function Home() {
         <div className="footer-bottom">
 
           <div className="footer-location">
-            ● &nbsp; SERVING SAINT CLOUD, LAKE NONA,
-            <br />
-            NARCOOSSEE &amp; SURROUNDING AREAS
+            <span className="pin">●</span>
+
+            <span>
+              SERVING SAINT CLOUD,
+              <br />
+              LAKE NONA, NARCOOSSEE
+              <br />
+              &amp; SURROUNDING AREAS
+            </span>
           </div>
 
           <div className="footer-contact">
-            407.922.0912 &nbsp; | &nbsp; MAXANDMEPETCARE.COM
+            407.922.0912
+            &nbsp; | &nbsp;
+            MAXANDMEPETCARE.COM
+            &nbsp; 🐾
           </div>
 
           <div className="footer-socials">
@@ -474,16 +401,19 @@ export default function Home() {
         }
 
         .page {
-          background: #f3ead7;
           min-height: 100vh;
-          color: #0a2b49;
-          font-family: 'Outfit', sans-serif;
           overflow-x: hidden;
+          background: #f3ead7;
+          color: #0b2c48;
+          font-family: 'Outfit', sans-serif;
         }
+
+
+        /* HERO */
 
         .hero {
           position: relative;
-          height: 620px;
+          height: 615px;
           overflow: hidden;
           background: #111;
         }
@@ -497,18 +427,22 @@ export default function Home() {
           object-position: 58% 43%;
         }
 
-        .hero-shade {
+        .hero-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(
-            90deg,
-            rgba(0,0,0,.82) 0%,
-            rgba(0,0,0,.66) 30%,
-            rgba(0,0,0,.18) 57%,
-            rgba(0,0,0,.04) 78%,
-            rgba(0,0,0,.24) 100%
-          );
+          background:
+            linear-gradient(
+              90deg,
+              rgba(0,0,0,.82) 0%,
+              rgba(0,0,0,.66) 28%,
+              rgba(0,0,0,.32) 48%,
+              rgba(0,0,0,.05) 70%,
+              rgba(0,0,0,.18) 100%
+            );
         }
+
+
+        /* HEADER */
 
         .site-header {
           position: absolute;
@@ -516,63 +450,65 @@ export default function Home() {
           top: 0;
           left: 0;
           right: 0;
-          height: 92px;
+          height: 96px;
           display: flex;
           align-items: center;
           gap: 26px;
-          padding: 10px clamp(28px, 4.4vw, 68px);
+          padding: 12px clamp(34px, 4.5vw, 70px);
         }
 
         .brand {
-          width: 185px;
+          width: 195px;
           flex: 0 0 auto;
         }
 
         .brand img {
           width: 100%;
           display: block;
-          filter: drop-shadow(0 2px 5px rgba(0,0,0,.45));
+          filter: drop-shadow(0 2px 5px rgba(0,0,0,.55));
         }
 
         .desktop-nav {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: clamp(13px, 1.55vw, 25px);
           flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: clamp(14px, 1.7vw, 28px);
         }
 
         .desktop-nav a {
-          color: #fff;
+          color: white;
           text-decoration: none;
           font-family: 'Barlow Condensed', sans-serif;
+          font-size: .94rem;
           font-weight: 800;
-          letter-spacing: .04em;
-          font-size: .9rem;
-          padding: 8px 0;
-          text-shadow: 0 2px 4px rgba(0,0,0,.55);
+          letter-spacing: .045em;
           white-space: nowrap;
+          padding: 8px 0;
+          text-shadow: 0 2px 5px rgba(0,0,0,.7);
         }
 
         .desktop-nav a.active {
-          border-bottom: 3px solid #f26522;
+          border-bottom: 3px solid #f26419;
         }
 
         .book-button {
+          flex: 0 0 auto;
+          min-width: 145px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
-          background: #f26522;
-          color: #fff;
+          padding: 14px 18px;
+          border-radius: 7px;
+          background: #f26419;
+          color: white;
           text-decoration: none;
-          border-radius: 8px;
-          padding: 13px 18px;
           font-family: 'Barlow Condensed', sans-serif;
+          font-size: 1rem;
           font-weight: 900;
-          letter-spacing: .06em;
-          white-space: nowrap;
-          box-shadow: 0 5px 15px rgba(0,0,0,.24);
+          letter-spacing: .04em;
+          box-shadow: 0 5px 14px rgba(0,0,0,.25);
         }
 
         .mobile-toggle {
@@ -581,317 +517,303 @@ export default function Home() {
           width: 48px;
           height: 48px;
           border: 1px solid rgba(255,255,255,.5);
-          background: rgba(8,32,52,.82);
-          color: white;
           border-radius: 8px;
-          font-size: 1.65rem;
+          background: rgba(8,34,55,.9);
+          color: white;
+          font-size: 1.6rem;
           cursor: pointer;
         }
 
         .mobile-nav {
           position: absolute;
-          top: 76px;
-          left: 16px;
-          right: 16px;
-          background: rgba(8,31,52,.985);
-          padding: 14px 20px;
-          border-radius: 10px;
-          box-shadow: 0 15px 30px rgba(0,0,0,.35);
+          top: 80px;
+          left: 18px;
+          right: 18px;
+          padding: 16px 20px;
+          background: rgba(6,28,47,.98);
+          border-radius: 8px;
+          box-shadow: 0 14px 30px rgba(0,0,0,.35);
         }
 
         .mobile-nav a {
           display: block;
+          padding: 9px 0;
           color: white;
           text-decoration: none;
           font-family: 'Barlow Condensed', sans-serif;
           font-weight: 800;
-          letter-spacing: .08em;
-          padding: 9px 0;
+          letter-spacing: .07em;
         }
+
+
+        /* HERO TEXT */
 
         .hero-copy {
           position: absolute;
           z-index: 10;
-          left: clamp(30px, 4.5vw, 68px);
-          top: 165px;
-          width: min(52vw, 660px);
+          top: 170px;
+          left: clamp(36px, 4.6vw, 72px);
+          width: min(52vw, 640px);
           color: white;
         }
 
         .hero-copy h1 {
-          margin: 0 0 8px;
+          margin: 0;
           font-family: 'Anton', sans-serif;
-          font-size: clamp(3.1rem, 5.3vw, 5.6rem);
+          font-size: clamp(3.1rem, 5.25vw, 5.4rem);
           line-height: .94;
           letter-spacing: .005em;
-          text-shadow: 0 4px 12px rgba(0,0,0,.4);
+          text-shadow: 0 4px 13px rgba(0,0,0,.45);
         }
 
         .hero-copy h1 span {
-          color: #f15f16;
+          color: #f15e16;
         }
 
         .hero-script {
-          font-family: 'Dancing Script', cursive;
-          font-size: clamp(2rem, 3.3vw, 3.2rem);
-          line-height: 1.05;
           margin: 10px 0 12px;
-          text-shadow: 0 3px 8px rgba(0,0,0,.45);
+          font-family: 'Dancing Script', cursive;
+          font-size: clamp(2rem, 3.4vw, 3.25rem);
+          font-weight: 700;
+          line-height: 1;
+          text-shadow: 0 3px 7px rgba(0,0,0,.5);
         }
 
         .hero-copy p {
-          max-width: 520px;
+          max-width: 485px;
           margin: 0;
-          font-size: clamp(.98rem, 1.25vw, 1.15rem);
-          line-height: 1.42;
-          text-shadow: 0 2px 5px rgba(0,0,0,.55);
+          color: rgba(255,255,255,.94);
+          font-size: clamp(.98rem, 1.3vw, 1.16rem);
+          line-height: 1.4;
+          text-shadow: 0 2px 5px rgba(0,0,0,.65);
         }
 
         .hero-note {
           position: absolute;
-          z-index: 8;
-          right: 4.5%;
-          top: 155px;
+          z-index: 10;
+          right: 5%;
+          top: 150px;
           color: white;
           font-family: 'Dancing Script', cursive;
-          font-size: clamp(1.5rem, 2.4vw, 2.35rem);
-          line-height: 1.05;
+          font-size: clamp(1.5rem, 2.2vw, 2.35rem);
+          font-weight: 700;
+          line-height: .95;
           text-align: center;
           transform: rotate(-7deg);
-          text-shadow: 0 2px 7px rgba(0,0,0,.7);
+          text-shadow: 0 2px 6px rgba(0,0,0,.7);
         }
 
-        .paths {
+
+        /* SERVICES */
+
+        .services-section {
           position: relative;
           background: #f3ead7;
-          padding: 0 18px;
+          padding: 48px clamp(20px, 3vw, 36px) 24px;
         }
 
-        .path-grid {
-          position: relative;
-          max-width: 1180px;
-          margin: -36px auto 0;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          border-radius: 50% 50% 10px 10px / 44px 44px 10px 10px;
-          overflow: hidden;
-          box-shadow: 0 10px 30px rgba(16,34,55,.14);
-          z-index: 5;
-        }
-
-        .path-card {
-          min-height: 365px;
-          padding: 54px clamp(28px,4vw,58px) 36px;
-          color: white;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          position: relative;
-        }
-
-        .adventure-card {
-          background: linear-gradient(160deg, #063251, #08233d);
-          border-right: 1px solid rgba(255,255,255,.35);
-        }
-
-        .pet-card {
-          background: linear-gradient(155deg, #d94c0b, #9b3107);
-        }
-
-        .path-card:after {
+        .services-section:before {
           content: '';
           position: absolute;
-          inset: 0;
-          opacity: .12;
-          pointer-events: none;
-          background-image:
-            radial-gradient(
-              circle at 25% 35%,
-              transparent 0 26px,
-              rgba(255,255,255,.22) 27px 28px,
-              transparent 29px
-            ),
-            radial-gradient(
-              circle at 80% 65%,
-              transparent 0 36px,
-              rgba(255,255,255,.16) 37px 38px,
-              transparent 39px
-            );
-          background-size: 180px 180px, 230px 230px;
-        }
-
-        .path-card > * {
-          position: relative;
-          z-index: 1;
-        }
-
-        .center-paw {
-          position: absolute;
-          z-index: 9;
-          left: 50%;
-          top: 0;
-          transform: translate(-50%, -34%);
-          width: 66px;
-          height: 66px;
-          border-radius: 50%;
-          background: #082b49;
-          border: 4px solid #f3ead7;
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 12px rgba(0,0,0,.2);
-        }
-
-        .adventure-mark {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          color: #f3ead7;
-          margin-bottom: 8px;
-        }
-
-        .adventure-badge {
-          width: 126px;
-          height: 82px;
-          border: 3px solid #f3ead7;
-          border-radius: 70px 70px 22px 22px;
-          overflow: hidden;
-          background: #f3ead7;
-        }
-
-        .adventure-badge svg {
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-
-        .adventure-name {
-          font-family: 'Dancing Script', cursive;
-          font-size: 2.25rem;
-          line-height: .9;
-          margin-top: 5px;
-        }
-
-        .adventure-club-name {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: .92rem;
-          font-weight: 900;
-          letter-spacing: .06em;
-          border-top: 2px solid currentColor;
-          border-bottom: 2px solid currentColor;
-          padding: 3px 8px;
-          margin-top: 5px;
-        }
-
-        .home-heart {
-          height: 74px;
-          width: 94px;
-          position: relative;
-          color: #fff;
-          margin-bottom: -4px;
-        }
-
-        .home-heart .roof {
-          font-family: Arial, sans-serif;
-          font-size: 76px;
-          line-height: .78;
-          font-weight: 700;
-          transform: scaleX(1.2);
-        }
-
-        .home-heart .heart {
-          position: absolute;
+          top: -24px;
           left: 0;
           right: 0;
-          top: 31px;
-          font-size: 25px;
-          color: #9b3107;
+          height: 40px;
+          background: #f3ead7;
+          clip-path: polygon(
+            0 48%,
+            3% 25%,
+            7% 46%,
+            11% 21%,
+            16% 49%,
+            20% 27%,
+            25% 51%,
+            30% 24%,
+            35% 49%,
+            40% 26%,
+            45% 52%,
+            50% 28%,
+            55% 50%,
+            60% 23%,
+            65% 51%,
+            70% 27%,
+            75% 49%,
+            80% 22%,
+            85% 50%,
+            90% 26%,
+            95% 48%,
+            100% 24%,
+            100% 100%,
+            0 100%
+          );
         }
 
-        .pet-path-logo {
-          width: min(250px, 72%);
-          max-height: 78px;
+        .service-grid {
+          max-width: 1180px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+
+        .service-card {
+          overflow: hidden;
+          background: #eadcc0;
+          box-shadow: 0 5px 16px rgba(53,42,24,.08);
+        }
+
+        .service-photo {
+          height: 390px;
+          overflow: hidden;
+        }
+
+        .service-photo img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .service-card:first-child .service-photo img {
+          object-position: center center;
+        }
+
+        .service-card:last-child .service-photo img {
+          object-position: center center;
+        }
+
+
+        /* PAPER CARD */
+
+        .paper-panel {
+          position: relative;
+          min-height: 318px;
+          margin-top: -60px;
+          padding: 74px 34px 28px;
+          background: #f3ead7;
+          text-align: center;
+          clip-path: polygon(
+            0 15%,
+            5% 11%,
+            10% 16%,
+            16% 10%,
+            23% 15%,
+            30% 9%,
+            37% 15%,
+            44% 10%,
+            51% 15%,
+            58% 9%,
+            65% 16%,
+            72% 11%,
+            79% 15%,
+            86% 10%,
+            93% 15%,
+            100% 11%,
+            100% 100%,
+            0 100%
+          );
+        }
+
+        .adventure-logo {
+          display: block;
+          width: min(300px, 78%);
+          max-height: 150px;
           object-fit: contain;
-          filter: brightness(0) invert(1);
-          margin: 0 auto 4px;
+          margin: -58px auto 8px;
         }
 
-        .path-card h2 {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-weight: 900;
-          letter-spacing: .045em;
-          font-size: clamp(1.55rem, 2.2vw, 2rem);
-          margin: 4px 0 2px;
+        .pet-logo {
+          display: block;
+          width: min(310px, 76%);
+          max-height: 120px;
+          object-fit: contain;
+          margin: -48px auto 10px;
         }
 
-        .path-card h3 {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-weight: 900;
-          letter-spacing: .05em;
-          font-size: 1.05rem;
-          color: #f47625;
-          margin: 0 0 10px;
+        .service-script {
+          margin: 8px 0 10px;
+          font-family: 'Dancing Script', cursive;
+          font-size: clamp(1.6rem, 2.25vw, 2rem);
+          font-weight: 700;
+          line-height: 1.02;
         }
 
-        .pet-card h3 {
-          color: #ff9b54;
+        .navy-script {
+          color: #0b2c48;
         }
 
-        .path-card p {
+        .orange-script {
+          color: #ef6420;
+        }
+
+        .service-copy {
+          max-width: 465px;
+          margin: 0 auto 18px;
+          color: #15283a;
+          font-size: .95rem;
+          line-height: 1.4;
+        }
+
+        .service-button {
+          width: 100%;
           max-width: 430px;
-          min-height: 48px;
-          font-size: .94rem;
-          line-height: 1.45;
-          margin: 0 0 20px;
-          color: rgba(255,255,255,.9);
-        }
-
-        .path-button {
-          margin-top: auto;
-          min-width: 285px;
-          min-height: 50px;
-          display: inline-flex;
+          min-height: 52px;
+          margin: 0 auto;
+          display: flex;
           align-items: center;
           justify-content: center;
           gap: 10px;
-          padding: 10px 24px;
-          border-radius: 7px;
-          background: #f7f0e2;
-          color: #0a2b49;
+          border-radius: 6px;
+          color: white;
           text-decoration: none;
           font-family: 'Barlow Condensed', sans-serif;
+          font-size: 1.2rem;
           font-weight: 900;
-          letter-spacing: .045em;
-          font-size: 1.13rem;
-          box-shadow: 0 4px 12px rgba(0,0,0,.15);
+          letter-spacing: .04em;
         }
+
+        .adventure-button {
+          background: #092943;
+          border: 2px solid #f26419;
+        }
+
+        .pet-button {
+          background: #264f25;
+        }
+
+
+        /* TRUST */
 
         .trust-strip {
           background: #f3ead7;
-          padding: 22px clamp(22px,4vw,56px) 30px;
+          padding: 8px clamp(20px,4vw,56px) 26px;
           text-align: center;
         }
 
-        .trust-strip h2 {
-          margin: 0 auto 18px;
-          font-family: 'Dancing Script', cursive;
-          font-size: clamp(2rem, 3vw, 2.85rem);
-          color: #0a2b49;
-          font-weight: 700;
+        .trust-heading {
+          max-width: 1000px;
+          margin: 0 auto 16px;
           display: flex;
           align-items: center;
-          gap: 20px;
           justify-content: center;
+          gap: 18px;
         }
 
-        .trust-strip h2 span {
-          display: block;
+        .trust-heading span {
           height: 2px;
-          width: 105px;
-          background: #f36b21;
+          flex: 1;
+          max-width: 185px;
+          background: #0b2c48;
+          opacity: .75;
+        }
+
+        .trust-heading h2 {
+          margin: 0;
+          color: #0b2c48;
+          font-family: 'Dancing Script', cursive;
+          font-size: clamp(2rem, 3vw, 2.8rem);
+          font-weight: 700;
+          white-space: nowrap;
         }
 
         .trust-grid {
@@ -902,13 +824,18 @@ export default function Home() {
         }
 
         .trust-item {
-          min-height: 82px;
+          min-height: 88px;
+          padding: 0 10px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: flex-start;
-          padding: 0 10px;
-          border-right: 1px solid rgba(16,45,74,.2);
+          border-right: 1px solid rgba(11,44,72,.2);
+          color: #0b2c48;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: .9rem;
+          font-weight: 900;
+          line-height: 1.05;
         }
 
         .trust-item:last-child {
@@ -916,30 +843,26 @@ export default function Home() {
         }
 
         .trust-icon {
-          width: 46px;
-          height: 46px;
+          width: 44px;
+          height: 44px;
+          margin-bottom: 7px;
           border-radius: 50%;
-          background: #0a2b49;
-          color: white;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 1.5rem;
-          margin-bottom: 7px;
+          background: #0b2c48;
+          color: white;
+          font-size: 1.45rem;
         }
 
-        .trust-label {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-weight: 800;
-          line-height: 1.05;
-          font-size: .92rem;
-        }
+
+        /* FOOTER */
 
         .footer-photo {
           position: relative;
-          height: 360px;
+          height: 365px;
           overflow: hidden;
-          background: #071d31;
+          background: #071b2d;
           color: white;
         }
 
@@ -949,35 +872,40 @@ export default function Home() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center 52%;
+          object-position: center center;
         }
 
-        .footer-shade {
+        .footer-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(
-            to top,
-            rgba(4,19,34,.96) 0%,
-            rgba(4,19,34,.1) 54%,
-            rgba(0,0,0,.03) 100%
-          );
+          background:
+            linear-gradient(
+              to top,
+              rgba(4,20,35,.96) 0%,
+              rgba(4,20,35,.18) 53%,
+              rgba(0,0,0,.03) 100%
+            );
         }
 
-        .footer-script {
+        .footer-left-script,
+        .footer-right-script {
           position: absolute;
-          top: 26%;
+          z-index: 3;
+          top: 27%;
+          color: white;
           font-family: 'Dancing Script', cursive;
-          font-size: clamp(1.8rem, 2.7vw, 2.7rem);
+          font-size: clamp(1.8rem, 2.7vw, 2.8rem);
+          font-weight: 700;
           line-height: 1.05;
-          text-shadow: 0 2px 6px rgba(0,0,0,.7);
+          text-shadow: 0 2px 7px rgba(0,0,0,.7);
         }
 
-        .footer-left {
+        .footer-left-script {
           left: 4.5%;
           transform: rotate(-5deg);
         }
 
-        .footer-right {
+        .footer-right-script {
           right: 4.5%;
           text-align: right;
           transform: rotate(-5deg);
@@ -985,11 +913,12 @@ export default function Home() {
 
         .footer-bottom {
           position: absolute;
+          z-index: 4;
           left: 4%;
           right: 4%;
           bottom: 18px;
           display: grid;
-          grid-template-columns: 1.15fr 1.6fr .65fr;
+          grid-template-columns: 1.2fr 1.6fr .7fr;
           align-items: end;
           gap: 18px;
           font-family: 'Barlow Condensed', sans-serif;
@@ -997,8 +926,16 @@ export default function Home() {
         }
 
         .footer-location {
-          font-size: .88rem;
-          line-height: 1.18;
+          display: flex;
+          align-items: flex-start;
+          gap: 9px;
+          font-size: .86rem;
+          line-height: 1.12;
+        }
+
+        .pin {
+          font-size: 1.5rem;
+          line-height: 1;
         }
 
         .footer-contact {
@@ -1011,7 +948,10 @@ export default function Home() {
           font-size: 1.65rem;
         }
 
-        @media (max-width: 980px) {
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
 
           .desktop-nav,
           .book-button {
@@ -1040,32 +980,36 @@ export default function Home() {
           }
         }
 
+
+        /* MOBILE */
+
         @media (max-width: 640px) {
 
           .hero {
-            height: 520px;
+            height: 510px;
           }
 
           .hero-image {
             object-position: 58% center;
           }
 
-          .hero-shade {
-            background: linear-gradient(
-              90deg,
-              rgba(0,0,0,.8) 0%,
-              rgba(0,0,0,.55) 47%,
-              rgba(0,0,0,.08) 80%
-            );
+          .hero-overlay {
+            background:
+              linear-gradient(
+                90deg,
+                rgba(0,0,0,.82) 0%,
+                rgba(0,0,0,.62) 44%,
+                rgba(0,0,0,.08) 85%
+              );
           }
 
           .site-header {
-            height: 74px;
+            height: 72px;
             padding: 8px 18px;
           }
 
           .brand {
-            width: 132px;
+            width: 135px;
           }
 
           .mobile-toggle {
@@ -1074,184 +1018,156 @@ export default function Home() {
           }
 
           .mobile-nav {
-            top: 68px;
+            top: 66px;
           }
 
           .hero-copy {
-            left: 24px;
-            top: 165px;
-            width: calc(100% - 48px);
+            top: 153px;
+            left: 22px;
+            width: calc(100% - 44px);
           }
 
           .hero-copy h1 {
-            font-size: clamp(2.65rem, 11.7vw, 3.5rem);
-            max-width: 94%;
+            max-width: 92%;
+            font-size: clamp(2.6rem, 11.5vw, 3.4rem);
           }
 
           .hero-script {
-            font-size: 2rem;
             margin-top: 8px;
+            font-size: 2rem;
           }
 
           .hero-copy p {
-            max-width: 88%;
-            font-size: .9rem;
-            line-height: 1.38;
+            max-width: 87%;
+            font-size: .88rem;
+            line-height: 1.35;
           }
 
-          .paths {
-            padding: 0 8px;
+
+          /* KEEP SERVICE CARDS SIDE BY SIDE */
+
+          .services-section {
+            padding: 30px 8px 18px;
           }
 
-          .path-grid {
-            margin-top: -24px;
+          .service-grid {
             grid-template-columns: 1fr 1fr;
-            border-radius: 46% 46% 8px 8px / 28px 28px 8px 8px;
+            gap: 8px;
           }
 
-          .path-card {
-            min-height: 300px;
-            padding: 38px 10px 16px;
+          .service-photo {
+            height: 205px;
           }
 
-          .center-paw {
-            width: 50px;
-            height: 50px;
+          .paper-panel {
+            min-height: 235px;
+            margin-top: -42px;
+            padding: 53px 9px 13px;
           }
 
-          .center-paw svg {
-            width: 25px;
-            height: 25px;
-          }
-
-          .adventure-badge {
-            width: 88px;
-            height: 58px;
-            border-width: 2px;
-          }
-
-          .adventure-name {
-            font-size: 1.5rem;
-          }
-
-          .adventure-club-name {
-            font-size: .62rem;
-            padding: 2px 4px;
-          }
-
-          .home-heart {
-            transform: scale(.72);
-            margin: -10px 0 -14px;
-          }
-
-          .pet-path-logo {
+          .adventure-logo {
             width: 92%;
-            max-height: 58px;
-            margin-bottom: 2px;
+            max-height: 82px;
+            margin: -38px auto 6px;
           }
 
-          .path-card h2 {
-            font-size: 1.05rem;
-            line-height: 1.05;
-            margin-top: 4px;
+          .pet-logo {
+            width: 90%;
+            max-height: 62px;
+            margin: -31px auto 7px;
           }
 
-          .path-card h3 {
+          .service-script {
+            margin: 6px 0 7px;
+            font-size: .98rem;
+            line-height: 1;
+          }
+
+          .service-copy {
+            margin-bottom: 9px;
+            font-size: .62rem;
+            line-height: 1.24;
+          }
+
+          .service-button {
+            min-height: 38px;
+            gap: 4px;
+            padding: 5px 3px;
             font-size: .73rem;
-            line-height: 1.05;
-            margin: 4px 0 8px;
           }
 
-          .path-card p {
-            font-size: .72rem;
-            line-height: 1.3;
-            min-height: 55px;
-            margin-bottom: 12px;
+          .service-button svg {
+            width: 14px;
+            height: 14px;
           }
 
-          .path-button {
-            min-width: 0;
-            width: 100%;
-            min-height: 42px;
-            padding: 8px 5px;
-            gap: 5px;
-            font-size: .78rem;
-          }
 
-          .path-button svg {
-            width: 15px;
-            height: 15px;
-          }
+          /* TRUST */
 
           .trust-strip {
-            padding: 18px 14px 22px;
+            padding: 10px 10px 18px;
           }
 
-          .trust-strip h2 {
-            font-size: 1.85rem;
-            gap: 10px;
-            margin-bottom: 16px;
+          .trust-heading {
+            gap: 8px;
+            margin-bottom: 13px;
           }
 
-          .trust-strip h2 span {
-            width: 30px;
+          .trust-heading h2 {
+            font-size: 1.55rem;
+            white-space: normal;
+          }
+
+          .trust-heading span {
+            max-width: 35px;
           }
 
           .trust-grid {
             grid-template-columns: repeat(3, 1fr);
-            row-gap: 17px;
+            row-gap: 14px;
           }
 
           .trust-item {
-            min-height: 72px;
+            min-height: 65px;
             border-right: 0;
-            padding: 0 4px;
+            padding: 0 3px;
+            font-size: .66rem;
           }
 
           .trust-icon {
-            width: 39px;
-            height: 39px;
-            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
             margin-bottom: 5px;
+            font-size: 1.1rem;
           }
 
-          .trust-icon svg {
-            width: 22px;
-            height: 22px;
-          }
 
-          .trust-label {
-            font-size: .72rem;
-          }
+          /* FOOTER */
 
           .footer-photo {
-            height: 300px;
+            height: 285px;
           }
 
-          .footer-photo > img {
-            object-position: center center;
+          .footer-left-script,
+          .footer-right-script {
+            top: 18%;
+            font-size: 1.45rem;
           }
 
-          .footer-script {
-            top: 17%;
-            font-size: 1.55rem;
-          }
-
-          .footer-left {
+          .footer-left-script {
             left: 4%;
           }
 
-          .footer-right {
+          .footer-right-script {
             right: 4%;
           }
 
           .footer-bottom {
-            left: 4%;
-            right: 4%;
-            bottom: 14px;
+            left: 3%;
+            right: 3%;
+            bottom: 12px;
             grid-template-columns: 1fr;
-            gap: 7px;
-            text-align: center;
+            gap: 5px;
           }
 
           .footer-location {
@@ -1264,11 +1180,11 @@ export default function Home() {
           }
 
           .footer-contact {
-            font-size: .85rem;
+            font-size: .8rem;
           }
 
           .footer-socials {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
           }
         }
 
@@ -1277,4 +1193,3 @@ export default function Home() {
     </main>
   )
 }
-
