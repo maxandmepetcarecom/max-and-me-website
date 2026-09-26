@@ -75,23 +75,33 @@ export default function Home() {
       </section>
 
       <section className="choice-section">
+        <div className="choice-sign" aria-label="Choose your adventure. Two paths. One bigger story.">
+          <div className="choice-sign-title">CHOOSE YOUR ADVENTURE <PawPrint size={24} /></div>
+          <div className="choice-sign-subtitle"><span />TWO PATHS. ONE BIGGER STORY.<span /></div>
+        </div>
+        <div className="choice-arrows" aria-hidden="true"><span>↙</span><span>↘</span></div>
+
         <div className="choice-grid">
           <article className="choice-card">
-            <div className="choice-photo adventure-photo"><img src={huckImg} alt="Huck enjoying an outdoor adventure" /></div>
+            <div className="choice-photo adventure-photo">
+              <img src={huckImg} alt="Huck enjoying an outdoor adventure" />
+              <div className="choice-label">CANINE ADVENTURE CLUB</div>
+            </div>
             <div className="choice-paper">
               <img src={adventureClubLogo} alt="Max & Me Canine Adventure Club" className="adventure-logo" />
               <p className="choice-tagline navy">Beyond the walk.<br />Into a life of adventure.</p>
-              <p className="choice-description">Hikes, field trips, pack walks, enrichment, and confidence-building adventures for dogs of every age and personality.</p>
               <a href="/adventure-club" className="choice-button adventure-btn">EXPLORE THE CLUB<PawPrint size={18} /></a>
             </div>
           </article>
 
           <article className="choice-card">
-            <div className="choice-photo pet-photo"><img src={petCareImg} alt="Dogs relaxing during Max & Me pet care" /></div>
+            <div className="choice-photo pet-photo">
+              <img src={petCareImg} alt="Dogs relaxing during Max & Me pet care" />
+              <div className="choice-label">PET CARE SERVICES</div>
+            </div>
             <div className="choice-paper">
               <img src={petCareLogo} alt="Max & Me Pet Care" className="pet-logo" />
               <p className="choice-tagline orange">Love. Comfort. Peace of mind.</p>
-              <p className="choice-description">Petcations, Daycations, Staycations, and personalized care built around each pet’s routine, personality, and needs.</p>
               <a href="/services" className="choice-button pet-btn">EXPLORE PET CARE<PawPrint size={18} /></a>
             </div>
           </article>
@@ -103,7 +113,7 @@ export default function Home() {
         <div className="trust-grid">
           <div className="trust-item"><div className="trust-icon">♡</div><strong>FEAR FREE<br />APPROACH</strong></div>
           <div className="trust-item"><div className="trust-icon">✓</div><strong>INSURED &amp;<br />BONDED</strong></div>
-          <div className="trust-item"><div className="trust-icon">✚</div><strong>PET FIRST AID<br />CERTIFIED</strong></div>
+          <div className="trust-item"><div className="trust-icon">✚</div><strong>PET FIRST AID</strong></div>
           <div className="trust-item"><div className="trust-icon camera-icon">▣</div><strong>PERSONAL ADVENTURE<br />PHOTO ALBUM</strong></div>
           <div className="trust-item"><div className="trust-icon location-icon">●</div><strong>SERVING SAINT CLOUD<br />&amp; SURROUNDING AREAS</strong></div>
         </div>
@@ -148,25 +158,33 @@ export default function Home() {
         .hero-script { margin: 7px 0 9px; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3.2vw, 3.1rem); font-weight: 700; line-height: 1; text-shadow: 0 3px 7px rgba(0,0,0,.45); }
         .hero-copy p { max-width: 500px; margin: 0; color: rgba(255,255,255,.94); font-size: clamp(.9rem, 1.2vw, 1.08rem); line-height: 1.35; text-shadow: 0 2px 5px rgba(0,0,0,.55); }
 
-        .choice-section { position: relative; padding: 34px clamp(16px, 3vw, 40px) 22px; background: #f3ead7; }
-        .choice-section:before { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 30px; background: #f3ead7; clip-path: polygon(0 45%,5% 22%,10% 49%,15% 24%,20% 50%,25% 25%,30% 52%,35% 24%,40% 50%,45% 27%,50% 52%,55% 25%,60% 50%,65% 23%,70% 51%,75% 26%,80% 49%,85% 24%,90% 51%,95% 27%,100% 46%,100% 100%,0 100%); }
-        .choice-grid { position: relative; z-index: 2; width: 100%; max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
-        .choice-card { min-width: 0; overflow: hidden; background: #eee2ca; box-shadow: 0 5px 16px rgba(40,31,19,.08); }
-        .choice-photo { height: 330px; overflow: hidden; }
+        .choice-section { position: relative; padding: 70px clamp(16px, 3vw, 40px) 30px; background: #f3ead7; }
+        .choice-section:before { content: ''; position: absolute; z-index: 3; top: -76px; left: 0; width: 100%; height: 95px; background: url('/torn-paper-top.png') center bottom / 100% 100% no-repeat; pointer-events: none; }
+        .choice-sign { position: relative; z-index: 4; width: min(650px, 78vw); margin: -18px auto 8px; padding: 15px 28px 13px; color: #102d4a; text-align: center; transform: rotate(-.4deg); background: linear-gradient(rgba(255,255,255,.07), rgba(0,0,0,.04)), repeating-linear-gradient(0deg, #c99658 0 27px, #bd874d 28px 30px); border: 2px solid rgba(91,55,25,.38); border-radius: 3px 7px 4px 6px; box-shadow: 0 6px 13px rgba(72,43,20,.24), inset 0 0 18px rgba(80,45,16,.15); }
+        .choice-sign:before, .choice-sign:after { content: ''; position: absolute; width: 9px; height: 9px; top: 14px; border-radius: 50%; background: #6d533c; box-shadow: inset 0 1px 2px #24180e; }
+        .choice-sign:before { left: 13px; }
+        .choice-sign:after { right: 13px; }
+        .choice-sign-title { display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.45rem, 3vw, 2.3rem); font-weight: 900; letter-spacing: .035em; line-height: 1; }
+        .choice-sign-subtitle { margin-top: 6px; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(.82rem, 1.45vw, 1.15rem); font-weight: 900; letter-spacing: .055em; }
+        .choice-sign-subtitle span { width: 54px; height: 2px; background: #102d4a; }
+        .choice-arrows { width: min(860px, 82vw); margin: -4px auto 0; display: flex; justify-content: space-between; color: #f36b21; font-family: serif; font-size: 2.1rem; font-weight: 900; line-height: .8; }
+        .choice-grid { position: relative; z-index: 2; width: 100%; max-width: 940px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+        .choice-card { min-width: 0; overflow: hidden; background: #efe4ce; border: 1px solid rgba(34,49,61,.14); border-radius: 16px; box-shadow: 0 7px 20px rgba(40,31,19,.13); }
+        .choice-photo { position: relative; height: 300px; overflow: hidden; }
+        .choice-photo:after { content: ''; position: absolute; z-index: 2; left: 0; right: 0; bottom: -1px; height: 70px; background: url('/torn-paper-top.png') center bottom / 100% 100% no-repeat; pointer-events: none; }
         .choice-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
         .adventure-photo img { object-position: center 42%; }
         .pet-photo img { object-position: center 50%; }
-
-        .choice-paper { position: relative; min-width: 0; overflow: hidden; min-height: 310px; margin-top: -42px; padding: 54px 28px 24px; background: #f3ead7; text-align: center; clip-path: polygon(0 13%,8% 9%,17% 12%,26% 8%,35% 11%,44% 8%,53% 12%,62% 8%,71% 11%,80% 8%,89% 12%,100% 9%,100% 100%,0 100%); }
-        .adventure-logo { display: block; width: min(260px, 76%); height: 90px; object-fit: contain; margin: -38px auto 4px; }
-        .pet-logo { display: block; width: min(275px, 76%); height: 90px; object-fit: contain; margin: -38px auto 4px; }
-        .choice-tagline { margin: 4px 0 15px; font-family: 'Dancing Script', cursive; font-size: clamp(1.45rem, 2vw, 1.85rem); font-weight: 700; line-height: 1.02; }
+        .choice-label { position: absolute; left: 50%; top: 18px; transform: translateX(-50%); width: max-content; max-width: 90%; padding: 8px 18px; border-radius: 7px; background: rgba(247,241,226,.94); color: #102d4a; font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 900; letter-spacing: .045em; box-shadow: 0 3px 9px rgba(0,0,0,.18); }
+        .choice-paper { position: relative; min-width: 0; overflow: hidden; min-height: 174px; margin-top: 0; padding: 4px 24px 22px; background: #f3ead7; text-align: center; }
+        .adventure-logo { display: block; width: min(235px, 72%); height: 76px; object-fit: contain; margin: 0 auto 4px; }
+        .pet-logo { display: block; width: min(235px, 72%); height: 76px; object-fit: contain; margin: 0 auto 4px; }
+        .choice-tagline { margin: 2px 0 15px; font-family: 'Dancing Script', cursive; font-size: clamp(1.35rem, 2vw, 1.75rem); font-weight: 700; line-height: 1.02; }
         .choice-tagline.navy { color: #102d4a; }
         .choice-tagline.orange { color: #ef6420; }
-        .choice-description { max-width: 430px; overflow-wrap: anywhere; min-height: 66px; margin: 0 auto 16px; color: #172d43; font-size: .98rem; line-height: 1.25; }
-        .choice-button { width: 100%; min-width: 0; white-space: nowrap; max-width: 400px; min-height: 50px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 9px; color: white; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1.12rem; font-weight: 900; letter-spacing: .05em; border-radius: 6px; }
+        .choice-button { width: 100%; min-width: 0; white-space: nowrap; max-width: 370px; min-height: 50px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 9px; color: white; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1.12rem; font-weight: 900; letter-spacing: .05em; border-radius: 7px; }
         .adventure-btn { background: #092943; border: 2px solid #f36b21; }
-        .pet-btn { background: #294f26; }
+        .pet-btn { background: #e95f12; }
 
         .trust-strip { padding: 10px clamp(18px, 4vw, 50px) 28px; background: #f3ead7; text-align: center; }
         .trust-title { width: 100%; max-width: 900px; min-width: 0; margin: 0 auto 17px; display: flex; align-items: center; justify-content: center; gap: 16px; }
@@ -181,6 +199,7 @@ export default function Home() {
         .location-icon:after { content: ''; position: absolute; bottom: -5px; width: 8px; height: 8px; background: #102d4a; transform: rotate(45deg); }
 
         .footer-photo { position: relative; height: 330px; overflow: hidden; background: #081b2d; color: white; }
+        .footer-photo:before { content: ''; position: absolute; z-index: 4; top: -1px; left: 0; width: 100%; height: 66px; background: url('/torn-paper-bottom.png') center top / 100% 100% no-repeat; pointer-events: none; }
         .footer-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
         .footer-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,19,34,.95) 0%, rgba(4,19,34,.16) 52%, rgba(0,0,0,.02) 100%); }
         .footer-script { position: absolute; z-index: 2; top: 26%; font-family: 'Dancing Script', cursive; font-size: clamp(1.7rem, 2.6vw, 2.7rem); font-weight: 700; line-height: 1.02; text-shadow: 0 2px 6px rgba(0,0,0,.65); }
@@ -214,15 +233,23 @@ export default function Home() {
           .hero-script { margin: 6px 0 7px; font-size: 1.55rem; }
           .hero-copy p { width: 94%; font-size: .72rem; line-height: 1.27; }
 
-          .choice-section { padding: 24px 6px 14px; }
-          .choice-section:before { top: -14px; height: 22px; }
-          .choice-grid { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
-          .choice-photo { height: 165px; }
+          .choice-section { padding: 43px 8px 18px; }
+          .choice-section:before { top: -41px; height: 53px; }
+          .choice-sign { width: 84%; margin: -14px auto 6px; padding: 10px 13px 9px; }
+          .choice-sign-title { gap: 5px; font-size: 1.08rem; }
+          .choice-sign-title svg { width: 16px; height: 16px; }
+          .choice-sign-subtitle { gap: 6px; margin-top: 4px; font-size: .59rem; }
+          .choice-sign-subtitle span { width: 24px; height: 1px; }
+          .choice-arrows { width: 80%; margin: -2px auto 3px; font-size: 1.35rem; }
+          .choice-grid { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+          .choice-card { border-radius: 8px; }
+          .choice-photo { height: 175px; }
+          .choice-photo:after { height: 37px; }
           .adventure-photo img, .pet-photo img { object-position: center center; }
-          .choice-paper { min-height: 252px; margin-top: -27px; padding: 35px 7px 10px; clip-path: polygon(0 13%,10% 9%,20% 12%,30% 8%,40% 11%,50% 8%,60% 12%,70% 9%,80% 12%,90% 8%,100% 11%,100% 100%,0 100%); }
-          .adventure-logo, .pet-logo { width: 88%; height: 62px; margin: -28px auto 1px; }
-          .choice-tagline { margin: 3px 0 7px; font-size: .92rem; line-height: .98; }
-          .choice-description { min-height: 73px; margin: 0 auto 9px; padding: 0 3px; font-size: .66rem; line-height: 1.18; }
+          .choice-label { top: 8px; padding: 5px 8px; border-radius: 4px; font-size: .62rem; }
+          .choice-paper { min-height: 144px; margin-top: 0; padding: 3px 7px 10px; }
+          .adventure-logo, .pet-logo { width: 82%; height: 52px; margin: 0 auto 1px; }
+          .choice-tagline { margin: 2px 0 9px; font-size: .82rem; line-height: .98; }
           .choice-button { min-height: 34px; padding: 4px 2px; gap: 4px; font-size: .68rem; border-radius: 4px; }
           .choice-button svg { width: 12px; height: 12px; }
 
@@ -236,8 +263,9 @@ export default function Home() {
           .trust-item strong { max-width: 72px; }
 
           .footer-photo { height: 235px; }
+          .footer-photo:before { height: 36px; }
           .footer-photo > img { object-position: center center; }
-          .footer-script { top: 18%; font-size: 1.3rem; }
+          .footer-script { top: 25%; font-size: 1.3rem; }
           .footer-left { left: 4%; }
           .footer-right { right: 4%; }
           .footer-bottom { left: 3%; right: 3%; bottom: 10px; display: block; text-align: center; }
