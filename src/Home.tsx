@@ -79,7 +79,7 @@ export default function Home() {
           <div className="choice-sign-title">CHOOSE YOUR ADVENTURE <PawPrint size={24} /></div>
           <div className="choice-sign-subtitle"><span />TWO PATHS. ONE BIGGER STORY.<span /></div>
         </div>
-        <div className="choice-arrows" aria-hidden="true"><span>↙</span><span>↘</span></div>
+        <div className="choice-arrows" aria-hidden="true"><span>↙</span><span>↘</span><span className="mobile-arrow">↓</span></div>
 
         <div className="choice-grid">
           <article className="choice-card">
@@ -168,6 +168,7 @@ export default function Home() {
         .choice-sign-subtitle { margin-top: 6px; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(.82rem, 1.45vw, 1.15rem); font-weight: 900; letter-spacing: .055em; }
         .choice-sign-subtitle span { width: 54px; height: 2px; background: #102d4a; }
         .choice-arrows { width: min(860px, 82vw); margin: -4px auto 0; display: flex; justify-content: space-between; color: #f36b21; font-family: serif; font-size: 2.1rem; font-weight: 900; line-height: .8; }
+        .mobile-arrow { display: none; }
         .choice-grid { position: relative; z-index: 2; width: 100%; max-width: 940px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
         .choice-card { min-width: 0; overflow: hidden; background: #efe4ce; border: 1px solid rgba(34,49,61,.14); border-radius: 16px; box-shadow: 0 7px 20px rgba(40,31,19,.13); }
         .choice-photo { position: relative; height: 300px; overflow: hidden; }
@@ -233,25 +234,28 @@ export default function Home() {
           .hero-script { margin: 6px 0 7px; font-size: 1.55rem; }
           .hero-copy p { width: 94%; font-size: .72rem; line-height: 1.27; }
 
-          .choice-section { padding: 43px 8px 18px; }
+          .choice-section { padding: 43px 16px 26px; }
           .choice-section:before { top: -41px; height: 53px; }
-          .choice-sign { width: 84%; margin: -14px auto 6px; padding: 10px 13px 9px; }
-          .choice-sign-title { gap: 5px; font-size: 1.08rem; }
-          .choice-sign-title svg { width: 16px; height: 16px; }
-          .choice-sign-subtitle { gap: 6px; margin-top: 4px; font-size: .59rem; }
-          .choice-sign-subtitle span { width: 24px; height: 1px; }
-          .choice-arrows { width: 80%; margin: -2px auto 3px; font-size: 1.35rem; }
-          .choice-grid { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-          .choice-card { border-radius: 8px; }
-          .choice-photo { height: 175px; }
-          .choice-photo:after { height: 37px; }
-          .adventure-photo img, .pet-photo img { object-position: center center; }
-          .choice-label { top: 8px; padding: 5px 8px; border-radius: 4px; font-size: .62rem; }
-          .choice-paper { min-height: 144px; margin-top: 0; padding: 3px 7px 10px; }
-          .adventure-logo, .pet-logo { width: 82%; height: 52px; margin: 0 auto 1px; }
-          .choice-tagline { margin: 2px 0 9px; font-size: .82rem; line-height: .98; }
-          .choice-button { min-height: 34px; padding: 4px 2px; gap: 4px; font-size: .68rem; border-radius: 4px; }
-          .choice-button svg { width: 12px; height: 12px; }
+          .choice-sign { width: 100%; max-width: 460px; margin: -14px auto 6px; padding: 12px 14px 11px; }
+          .choice-sign-title { gap: 6px; font-size: clamp(1.22rem, 5.5vw, 1.65rem); }
+          .choice-sign-title svg { width: 19px; height: 19px; }
+          .choice-sign-subtitle { gap: 7px; margin-top: 5px; font-size: .75rem; }
+          .choice-sign-subtitle span { width: 30px; height: 1px; }
+          .choice-arrows { width: 100%; justify-content: center; margin: 1px auto 10px; font-size: 1.7rem; line-height: 1; }
+          .choice-arrows span:not(.mobile-arrow) { display: none; }
+          .choice-arrows .mobile-arrow { display: block; }
+          .choice-grid { width: 100%; max-width: 480px; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+          .choice-card { border-radius: 14px; }
+          .choice-photo { height: clamp(250px, 72vw, 340px); }
+          .choice-photo:after { height: 60px; }
+          .adventure-photo img { object-position: center 42%; }
+          .pet-photo img { object-position: center 50%; }
+          .choice-label { top: 16px; padding: 8px 16px; border-radius: 6px; font-size: 1.02rem; }
+          .choice-paper { min-height: 205px; margin-top: 0; padding: 8px 22px 23px; }
+          .adventure-logo, .pet-logo { width: min(235px, 78%); height: 83px; margin: 0 auto 5px; }
+          .choice-tagline { margin: 3px 0 16px; font-size: 1.6rem; line-height: 1.05; }
+          .choice-button { min-height: 52px; padding: 9px 12px; gap: 9px; font-size: 1.12rem; border-radius: 6px; }
+          .choice-button svg { width: 18px; height: 18px; }
 
           .trust-strip { padding: 8px 8px 15px; }
           .trust-title { gap: 7px; margin-bottom: 12px; }
