@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { CSSProperties } from 'react'
 
 import heroImg from '@/imports/IMG_1999.jpeg'
+import footerImg from '@/imports/71D5B044-4929-4163-95D6-6043BA0DD6AC.png'
 import petCareLogo from '@/imports/CEDF61B2-EC8A-46E7-8F26-BD383FE52A0D.png'
 
 function PawPrint({ size = 20, style }: { size?: number; style?: CSSProperties }) {
@@ -129,9 +130,16 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="simple-footer">
-        <div className="footer-tagline">Let’s explore together! ♡</div>
-        <div className="footer-contact">407.922.0912 <span>|</span> MAXANDMEPETCARE.COM <PawPrint size={20} /></div>
+      <footer className="footer-photo">
+        <div className="torn-edge" aria-hidden="true" />
+        <img src={footerImg} alt="Max & Me lakeside adventure at golden hour" />
+        <div className="footer-shade" />
+        <div className="footer-script footer-left">Let’s explore<br />together! ♡</div>
+        <div className="footer-script footer-right">Enriching lives<br />one paw at a time. ♡</div>
+        <div className="footer-bottom">
+          <div className="footer-location">● &nbsp; SERVING SAINT CLOUD, LAKE NONA, NARCOOSSEE &amp; SURROUNDING AREAS</div>
+          <div className="footer-contact">407.922.0912 &nbsp; | &nbsp; MAXANDMEPETCARE.COM &nbsp; 🐾</div>
+        </div>
       </footer>
 
       <style>{`
@@ -191,10 +199,16 @@ export default function Home() {
         .camera-icon { border-radius: 8px; }
         .pin-icon { border-radius: 50% 50% 50% 12px; background: #0d2740; color: #f4ead7; }
 
-        .simple-footer { min-height: 122px; padding: 22px 20px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: #08253d; color: white; text-align: center; }
-        .footer-tagline { color: #f36b21; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 700; line-height: 1; }
-        .footer-contact { display: flex; align-items: center; justify-content: center; gap: 13px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.05rem, 1.8vw, 1.45rem); font-weight: 900; letter-spacing: .045em; }
-        .footer-contact span { color: #f36b21; }
+        .footer-photo { position: relative; height: 360px; overflow: hidden; background: #081b2d; color: white; }
+        .footer-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+        .footer-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,19,34,.94) 0%, rgba(4,19,34,.30) 48%, rgba(0,0,0,.04) 100%); }
+        .torn-edge { position: absolute; z-index: 5; top: -1px; left: -2%; width: 104%; height: 25px; background: #f4ead7; clip-path: polygon(0 0,100% 0,100% 40%,97% 65%,94% 38%,91% 70%,88% 44%,85% 76%,82% 45%,79% 69%,76% 42%,73% 78%,70% 48%,67% 72%,64% 40%,61% 76%,58% 46%,55% 70%,52% 41%,49% 78%,46% 44%,43% 71%,40% 39%,37% 76%,34% 45%,31% 69%,28% 40%,25% 75%,22% 45%,19% 70%,16% 38%,13% 74%,10% 43%,7% 69%,4% 40%,0 66%); }
+        .footer-script { position: absolute; z-index: 2; top: 25%; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3.1vw, 3rem); font-weight: 700; line-height: 1.02; text-shadow: 0 3px 8px rgba(0,0,0,.72); }
+        .footer-left { left: 5%; transform: rotate(-4deg); }
+        .footer-right { right: 5%; text-align: right; transform: rotate(-4deg); }
+        .footer-bottom { position: absolute; z-index: 3; left: 4%; right: 4%; bottom: 20px; display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 20px; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; letter-spacing: .035em; }
+        .footer-location { font-size: .82rem; line-height: 1.2; }
+        .footer-contact { text-align: right; font-size: 1.02rem; }
 
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
@@ -239,9 +253,15 @@ export default function Home() {
           .trust-strip { padding: 22px 8px 24px; }
           .trust-item { min-height: 94px; padding: 8px 5px; font-size: .72rem; }
           .trust-icon { width: 42px; height: 42px; font-size: 1.35rem; }
-          .simple-footer { min-height: 108px; padding: 19px 12px 22px; }
-          .footer-tagline { font-size: 1.9rem; }
-          .footer-contact { gap: 9px; font-size: .96rem; }
+          .footer-photo { height: 270px; }
+          .footer-photo > img { object-position: center center; }
+          .torn-edge { height: 20px; }
+          .footer-script { top: 20%; font-size: 1.48rem; }
+          .footer-left { left: 4%; }
+          .footer-right { right: 4%; }
+          .footer-bottom { left: 4%; right: 4%; bottom: 12px; display: block; text-align: center; }
+          .footer-location { margin-bottom: 6px; font-size: .63rem; }
+          .footer-contact { text-align: center; font-size: .78rem; }
         }
       `}</style>
     </main>
