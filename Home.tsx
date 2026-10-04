@@ -130,15 +130,15 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="footer-photo">
+      <footer className="photo-footer">
         <div className="torn-edge" aria-hidden="true" />
-        <img src={footerImg} alt="Max & Me lakeside adventure at golden hour" />
+        <img src={footerImg} alt="Max & Me lakeside adventure at golden hour" className="footer-image" />
         <div className="footer-shade" />
         <div className="footer-script footer-left">Let’s explore<br />together! ♡</div>
         <div className="footer-script footer-right">Enriching lives<br />one paw at a time. ♡</div>
         <div className="footer-bottom">
           <div className="footer-location">● &nbsp; SERVING SAINT CLOUD, LAKE NONA, NARCOOSSEE &amp; SURROUNDING AREAS</div>
-          <div className="footer-contact">407.922.0912 &nbsp; | &nbsp; MAXANDMEPETCARE.COM &nbsp; 🐾</div>
+          <div className="footer-contact">407.922.0912 <span>|</span> MAXANDMEPETCARE.COM <PawPrint size={19} /></div>
         </div>
       </footer>
 
@@ -199,16 +199,17 @@ export default function Home() {
         .camera-icon { border-radius: 8px; }
         .pin-icon { border-radius: 50% 50% 50% 12px; background: #0d2740; color: #f4ead7; }
 
-        .footer-photo { position: relative; height: 360px; overflow: hidden; background: #081b2d; color: white; }
-        .footer-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
-        .footer-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,19,34,.94) 0%, rgba(4,19,34,.30) 48%, rgba(0,0,0,.04) 100%); }
-        .torn-edge { position: absolute; z-index: 5; top: -1px; left: -2%; width: 104%; height: 25px; background: #f4ead7; clip-path: polygon(0 0,100% 0,100% 40%,97% 65%,94% 38%,91% 70%,88% 44%,85% 76%,82% 45%,79% 69%,76% 42%,73% 78%,70% 48%,67% 72%,64% 40%,61% 76%,58% 46%,55% 70%,52% 41%,49% 78%,46% 44%,43% 71%,40% 39%,37% 76%,34% 45%,31% 69%,28% 40%,25% 75%,22% 45%,19% 70%,16% 38%,13% 74%,10% 43%,7% 69%,4% 40%,0 66%); }
-        .footer-script { position: absolute; z-index: 2; top: 25%; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3.1vw, 3rem); font-weight: 700; line-height: 1.02; text-shadow: 0 3px 8px rgba(0,0,0,.72); }
+        .photo-footer { position: relative; height: 360px; overflow: hidden; background: #08253d; color: white; }
+        .footer-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+        .footer-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,19,34,.92) 0%, rgba(4,19,34,.20) 48%, rgba(0,0,0,.04) 100%); }
+        .torn-edge { position: absolute; z-index: 5; top: -1px; left: -1%; width: 102%; height: 24px; background: #f4ead7; clip-path: polygon(0 0,100% 0,100% 42%,97% 63%,94% 45%,91% 72%,88% 48%,85% 68%,82% 43%,79% 70%,76% 49%,73% 76%,70% 44%,67% 67%,64% 47%,61% 73%,58% 45%,55% 69%,52% 43%,49% 75%,46% 48%,43% 70%,40% 44%,37% 72%,34% 46%,31% 68%,28% 43%,25% 74%,22% 48%,19% 69%,16% 45%,13% 73%,10% 47%,7% 68%,4% 45%,0 70%); filter: drop-shadow(0 3px 2px rgba(0,0,0,.18)); }
+        .footer-script { position: absolute; z-index: 3; top: 28%; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 700; line-height: 1.02; color: white; text-shadow: 0 3px 8px rgba(0,0,0,.72); }
         .footer-left { left: 5%; transform: rotate(-4deg); }
         .footer-right { right: 5%; text-align: right; transform: rotate(-4deg); }
         .footer-bottom { position: absolute; z-index: 3; left: 4%; right: 4%; bottom: 20px; display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 20px; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; letter-spacing: .035em; }
-        .footer-location { font-size: .82rem; line-height: 1.2; }
-        .footer-contact { text-align: right; font-size: 1.02rem; }
+        .footer-location { font-size: .86rem; line-height: 1.15; }
+        .footer-contact { display: flex; align-items: center; justify-content: flex-end; gap: 10px; font-size: 1.08rem; }
+        .footer-contact span { color: #f36b21; }
 
         @media (max-width: 900px) {
           .desktop-nav { display: none; }
@@ -253,15 +254,15 @@ export default function Home() {
           .trust-strip { padding: 22px 8px 24px; }
           .trust-item { min-height: 94px; padding: 8px 5px; font-size: .72rem; }
           .trust-icon { width: 42px; height: 42px; font-size: 1.35rem; }
-          .footer-photo { height: 270px; }
-          .footer-photo > img { object-position: center center; }
-          .torn-edge { height: 20px; }
-          .footer-script { top: 20%; font-size: 1.48rem; }
+          .photo-footer { height: 255px; }
+          .footer-image { object-position: center center; }
+          .torn-edge { height: 18px; }
+          .footer-script { top: 23%; font-size: 1.45rem; }
           .footer-left { left: 4%; }
           .footer-right { right: 4%; }
-          .footer-bottom { left: 4%; right: 4%; bottom: 12px; display: block; text-align: center; }
-          .footer-location { margin-bottom: 6px; font-size: .63rem; }
-          .footer-contact { text-align: center; font-size: .78rem; }
+          .footer-bottom { left: 3%; right: 3%; bottom: 12px; display: block; text-align: center; }
+          .footer-location { display: none; }
+          .footer-contact { justify-content: center; gap: 8px; font-size: .82rem; }
         }
       `}</style>
     </main>
