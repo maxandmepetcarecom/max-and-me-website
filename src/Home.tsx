@@ -94,6 +94,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="hero-rip" aria-hidden="true" />
+
       <section className="choice-section" aria-label="Max & Me services">
         <div className="choice-grid">
           <article className="choice-card adventure-card">
@@ -168,6 +170,16 @@ export default function Home() {
         .hero-script { margin: 7px 0 9px; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3.2vw, 3.1rem); font-weight: 700; line-height: 1; text-shadow: 0 3px 7px rgba(0,0,0,.45); }
         .hero-copy p { max-width: 500px; margin: 0; color: rgba(255,255,255,.94); font-size: clamp(.9rem, 1.2vw, 1.08rem); line-height: 1.35; text-shadow: 0 2px 5px rgba(0,0,0,.55); }
 
+        .hero-rip {
+          position: relative;
+          z-index: 3;
+          height: 34px;
+          margin-top: -2px;
+          margin-bottom: -1px;
+          background: #f3ead7 url('/torn-paper-bottom.png') center top / 100% 100% no-repeat;
+          pointer-events: none;
+        }
+
         .choice-section { position: relative; z-index: 2; padding: 18px clamp(18px, 3vw, 34px) 10px; background: #f3ead7; }
         .choice-grid { width: min(1180px, 100%); margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
         .choice-card { position: relative; overflow: hidden; min-width: 0; min-height: 300px; padding: 34px clamp(20px, 2.8vw, 42px); display: grid; grid-template-columns: 30% 70%; align-items: center; gap: 22px; border-radius: 28px; color: white; box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); }
@@ -239,6 +251,7 @@ export default function Home() {
           .hero-script { margin: 7px 0 8px; font-size: 1.55rem; }
           .hero-copy p { width: 98%; font-size: .73rem; line-height: 1.3; }
 
+          .hero-rip { height: 24px; }
           .choice-section { padding: 12px 10px 8px; }
           .choice-grid { gap: 10px; }
           .choice-card { min-height: 285px; padding: 24px 16px; grid-template-columns: 30% 70%; gap: 14px; border-radius: 22px; }
