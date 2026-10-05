@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { CSSProperties } from 'react'
 
 import heroImg from '@/imports/IMG_1999.jpeg'
+import footerImg from '@/imports/71D5B044-4929-4163-95D6-6043BA0DD6AC.png'
 import petCareLogo from '@/imports/CEDF61B2-EC8A-46E7-8F26-BD383FE52A0D.png'
 
 function PawPrint({ size = 20, style }: { size?: number; style?: CSSProperties }) {
@@ -125,13 +126,19 @@ export default function Home() {
           <div className="trust-item"><div className="trust-icon shield-icon">✓</div><strong>INSURED &amp;<br />BONDED</strong></div>
           <div className="trust-item"><div className="trust-icon first-aid-icon">✚</div><strong>PET FIRST AID</strong></div>
           <div className="trust-item"><div className="trust-icon camera-icon">▣</div><strong>ADVENTURES<br />CAPTURED DAILY</strong></div>
-          <div className="trust-item"><div className="trust-icon pin-icon">●</div><strong>SERVING SAINT CLOUD<br />LAKE NONA · NARCOOSSEE<br />&amp; SURROUNDING AREAS</strong></div>
+          <div className="trust-item"><div className="trust-icon pin-icon">●</div><strong>SERVING ST. CLOUD<br />&amp; SURROUNDING AREAS</strong></div>
         </div>
+      </section>
+
+      <section className="bottom-hero" aria-label="Max & Me lakeside adventure">
+        <img src={footerImg} alt="Max & Me lakeside adventure at golden hour" />
+        <div className="bottom-hero-shade" />
+        <div className="bottom-hero-copy">Enriching lives<br />one paw at a time. ♡</div>
       </section>
 
       <footer className="simple-footer">
         <div className="footer-tagline">Let’s explore together! ♡</div>
-        <div className="footer-contact">407.922.0912 <span>|</span> MAXANDMEPETCARE.COM <PawPrint size={20} /></div>
+        <div className="footer-contact">910-231-4203 <span>|</span> MAXANDMEPETCARE.COM <PawPrint size={20} /></div>
       </footer>
 
       <style>{`
@@ -191,6 +198,11 @@ export default function Home() {
         .camera-icon { border-radius: 8px; }
         .pin-icon { border-radius: 50% 50% 50% 12px; background: #0d2740; color: #f4ead7; }
 
+        .bottom-hero { position: relative; height: 330px; overflow: hidden; background: #081b2d; }
+        .bottom-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+        .bottom-hero-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,19,34,.78) 0%, rgba(4,19,34,.12) 55%, rgba(0,0,0,.02) 100%); }
+        .bottom-hero-copy { position: absolute; z-index: 2; right: 5%; bottom: 14%; color: white; text-align: right; font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 3.5vw, 3.4rem); font-weight: 700; line-height: 1.02; text-shadow: 0 2px 7px rgba(0,0,0,.65); transform: rotate(-4deg); }
+
         .simple-footer { min-height: 122px; padding: 22px 20px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: #08253d; color: white; text-align: center; }
         .footer-tagline { color: #f36b21; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 700; line-height: 1; }
         .footer-contact { display: flex; align-items: center; justify-content: center; gap: 13px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.05rem, 1.8vw, 1.45rem); font-weight: 900; letter-spacing: .045em; }
@@ -239,6 +251,11 @@ export default function Home() {
           .trust-strip { padding: 22px 8px 24px; }
           .trust-item { min-height: 94px; padding: 8px 5px; font-size: .72rem; }
           .trust-icon { width: 42px; height: 42px; font-size: 1.35rem; }
+
+          .bottom-hero { height: 235px; }
+          .bottom-hero > img { object-position: center center; }
+          .bottom-hero-copy { right: 4%; bottom: 12%; font-size: 1.7rem; }
+
           .simple-footer { min-height: 108px; padding: 19px 12px 22px; }
           .footer-tagline { font-size: 1.9rem; }
           .footer-contact { gap: 9px; font-size: .96rem; }
