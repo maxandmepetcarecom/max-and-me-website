@@ -126,20 +126,19 @@ export default function Home() {
           <div className="trust-item"><div className="trust-icon shield-icon">✓</div><strong>INSURED &amp;<br />BONDED</strong></div>
           <div className="trust-item"><div className="trust-icon first-aid-icon">✚</div><strong>PET FIRST AID</strong></div>
           <div className="trust-item"><div className="trust-icon camera-icon">▣</div><strong>ADVENTURES<br />CAPTURED DAILY</strong></div>
-          <div className="trust-item"><div className="trust-icon pin-icon">●</div><strong>SERVING SAINT CLOUD<br />LAKE NONA · NARCOOSSEE<br />&amp; SURROUNDING AREAS</strong></div>
+          <div className="trust-item"><div className="trust-icon pin-icon">●</div><strong>SERVING ST. CLOUD<br />&amp; SURROUNDING AREAS</strong></div>
         </div>
       </section>
 
-      <footer className="photo-footer">
-        <div className="torn-edge" aria-hidden="true" />
-        <img src={footerImg} alt="Max & Me lakeside adventure at golden hour" className="footer-image" />
-        <div className="footer-shade" />
-        <div className="footer-script footer-left">Let’s explore<br />together! ♡</div>
-        <div className="footer-script footer-right">Enriching lives<br />one paw at a time. ♡</div>
-        <div className="footer-bottom">
-          <div className="footer-location">● &nbsp; SERVING SAINT CLOUD, LAKE NONA, NARCOOSSEE &amp; SURROUNDING AREAS</div>
-          <div className="footer-contact">407.922.0912 <span>|</span> MAXANDMEPETCARE.COM <PawPrint size={19} /></div>
-        </div>
+      <section className="bottom-hero" aria-label="Max & Me lakeside adventure">
+        <img src={footerImg} alt="Max & Me lakeside adventure at golden hour" />
+        <div className="bottom-hero-shade" />
+        <div className="bottom-hero-copy">Enriching lives<br />one paw at a time. ♡</div>
+      </section>
+
+      <footer className="simple-footer">
+        <div className="footer-tagline">Let’s explore together! ♡</div>
+        <div className="footer-contact">910-231-4203 <span>|</span> MAXANDMEPETCARE.COM <PawPrint size={20} /></div>
       </footer>
 
       <style>{`
@@ -199,16 +198,14 @@ export default function Home() {
         .camera-icon { border-radius: 8px; }
         .pin-icon { border-radius: 50% 50% 50% 12px; background: #0d2740; color: #f4ead7; }
 
-        .photo-footer { position: relative; height: 360px; overflow: hidden; background: #08253d; color: white; }
-        .footer-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
-        .footer-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,19,34,.92) 0%, rgba(4,19,34,.20) 48%, rgba(0,0,0,.04) 100%); }
-        .torn-edge { position: absolute; z-index: 5; top: -1px; left: -1%; width: 102%; height: 24px; background: #f4ead7; clip-path: polygon(0 0,100% 0,100% 42%,97% 63%,94% 45%,91% 72%,88% 48%,85% 68%,82% 43%,79% 70%,76% 49%,73% 76%,70% 44%,67% 67%,64% 47%,61% 73%,58% 45%,55% 69%,52% 43%,49% 75%,46% 48%,43% 70%,40% 44%,37% 72%,34% 46%,31% 68%,28% 43%,25% 74%,22% 48%,19% 69%,16% 45%,13% 73%,10% 47%,7% 68%,4% 45%,0 70%); filter: drop-shadow(0 3px 2px rgba(0,0,0,.18)); }
-        .footer-script { position: absolute; z-index: 3; top: 28%; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 700; line-height: 1.02; color: white; text-shadow: 0 3px 8px rgba(0,0,0,.72); }
-        .footer-left { left: 5%; transform: rotate(-4deg); }
-        .footer-right { right: 5%; text-align: right; transform: rotate(-4deg); }
-        .footer-bottom { position: absolute; z-index: 3; left: 4%; right: 4%; bottom: 20px; display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 20px; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; letter-spacing: .035em; }
-        .footer-location { font-size: .86rem; line-height: 1.15; }
-        .footer-contact { display: flex; align-items: center; justify-content: flex-end; gap: 10px; font-size: 1.08rem; }
+        .bottom-hero { position: relative; height: 330px; overflow: hidden; background: #081b2d; }
+        .bottom-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+        .bottom-hero-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(4,19,34,.78) 0%, rgba(4,19,34,.12) 55%, rgba(0,0,0,.02) 100%); }
+        .bottom-hero-copy { position: absolute; z-index: 2; right: 5%; bottom: 14%; color: white; text-align: right; font-family: 'Dancing Script', cursive; font-size: clamp(2rem, 3.5vw, 3.4rem); font-weight: 700; line-height: 1.02; text-shadow: 0 2px 7px rgba(0,0,0,.65); transform: rotate(-4deg); }
+
+        .simple-footer { min-height: 122px; padding: 22px 20px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: #08253d; color: white; text-align: center; }
+        .footer-tagline { color: #f36b21; font-family: 'Dancing Script', cursive; font-size: clamp(1.9rem, 3vw, 2.7rem); font-weight: 700; line-height: 1; }
+        .footer-contact { display: flex; align-items: center; justify-content: center; gap: 13px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.05rem, 1.8vw, 1.45rem); font-weight: 900; letter-spacing: .045em; }
         .footer-contact span { color: #f36b21; }
 
         @media (max-width: 900px) {
@@ -254,15 +251,14 @@ export default function Home() {
           .trust-strip { padding: 22px 8px 24px; }
           .trust-item { min-height: 94px; padding: 8px 5px; font-size: .72rem; }
           .trust-icon { width: 42px; height: 42px; font-size: 1.35rem; }
-          .photo-footer { height: 255px; }
-          .footer-image { object-position: center center; }
-          .torn-edge { height: 18px; }
-          .footer-script { top: 23%; font-size: 1.45rem; }
-          .footer-left { left: 4%; }
-          .footer-right { right: 4%; }
-          .footer-bottom { left: 3%; right: 3%; bottom: 12px; display: block; text-align: center; }
-          .footer-location { display: none; }
-          .footer-contact { justify-content: center; gap: 8px; font-size: .82rem; }
+
+          .bottom-hero { height: 235px; }
+          .bottom-hero > img { object-position: center center; }
+          .bottom-hero-copy { right: 4%; bottom: 12%; font-size: 1.7rem; }
+
+          .simple-footer { min-height: 108px; padding: 19px 12px 22px; }
+          .footer-tagline { font-size: 1.9rem; }
+          .footer-contact { gap: 9px; font-size: .96rem; }
         }
       `}</style>
     </main>
